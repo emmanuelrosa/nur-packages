@@ -14,6 +14,9 @@ fonts.fonts = with pkgs; [
 ];
 ```
 
+### wingdings
+
+A Wingdings font.
 
 ## NixOS Modules
 
