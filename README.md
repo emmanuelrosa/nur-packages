@@ -2,6 +2,19 @@
 
 **My personal Nix packages, now available on  [NUR](https://github.com/nix-community/NUR)**
 
+## Packages
+
+### century-gothic
+
+A Century Gothic font. For example...
+
+```
+fonts.fonts = with pkgs; [
+  nur.repos.emmanuelrosa.century-gothic
+];
+```
+
+
 ## NixOS Modules
 
 ### btrbk
