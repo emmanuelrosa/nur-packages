@@ -2,7 +2,7 @@
   # Add your overlays here
   #
   # my-overlay = import ./my-overlay;
-  bitcoind = self: super:
+  pendingPR = self: super:
   { 
     bitcoind = super.callPackage ../pkgs/applications/blockchains/bitcoin.nix { miniupnpc = super.miniupnpc_2; withGui = false; };
   };
