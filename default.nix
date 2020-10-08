@@ -22,7 +22,17 @@
   trace-font = pkgs.callPackage ./pkgs/data/fonts/trace { };
   electrum-personal-server = pkgs.callPackage ./pkgs/electrum-personal-server { };
   er-wallpaper = pkgs.haskellPackages.callPackage ./pkgs/er-wallpaper { };
-  electrum-hardened = pkgs.callPackage ./pkgs/applications/misc/electrum-hardened { };
+
+  electrum-hardened = 
+  let 
+    pinnedPkgs = import (pkgs.fetchFromGitHub {
+      owner  = "NixOS";
+      repo   = "nixpkgs";
+      rev    = "23370afcedc46f63ea0dc7328bcb1f40d78887bf";
+      sha256 = "1wd422k1j3vx2bj31gzx3dv0fnh4h53v0v306bl179yzyr97wfiq";
+    }) { };
+  in pinnedPkgs.callPackage ./pkgs/applications/misc/electrum-hardened { };
+
   pdf2png = pkgs.callPackage ./pkgs/tools/graphics/pdf2png { };
   rofi-menu = pkgs.callPackage ./pkgs/applications/misc/rofi-menu { };
 }
