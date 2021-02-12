@@ -1,14 +1,14 @@
-{ stdenv, lib, makeWrapper, fetchFromGitHub, gnused, jq, sxiv, libnotify, fd }:
+{ stdenv, lib, makeWrapper, fetchFromGitHub, gnused, jq, sxiv, libnotify, fd, file, xdg-utils }:
 
 stdenv.mkDerivation rec {
   pname = "rofi-menu";
-  version = "0.5.0";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "emmanuelrosa";
     repo = pname;
     rev = version; 
-    sha256 = "08bxfg698phwh5b011jxcpjlg3rffnkgmax6vr8z9lj12s8nalp9";
+    sha256 = "03yffaa2y8v7v7ajh1c7kx5hd3jjw8ii7va98ygdlpzi94bclrgj";
   };
 
   nativeBuildInputs = [ makeWrapper ];
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   postFixup = ''
     wrapProgram $out/bin/rofi-menu-history --prefix PATH : ${lib.makeBinPath [ gnused jq sxiv ]}
-    wrapProgram $out/bin/rofi-menu-open --prefix PATH : ${lib.makeBinPath [ libnotify fd sxiv ]}
+    wrapProgram $out/bin/rofi-menu-open --prefix PATH : ${lib.makeBinPath [ fd sxiv file xdg-utils ]}
   '';
 
   meta = with lib; {
