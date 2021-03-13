@@ -87,7 +87,7 @@ in stdenv.mkDerivation rec {
     exec = "bisq-desktop";
     icon = "bisq";
     desktopName = "Bisq";
-    genericName = "Wallet";
+    genericName = "Distributed crypto exchange";
     categories  = "Network;Utility;";
   };
 
