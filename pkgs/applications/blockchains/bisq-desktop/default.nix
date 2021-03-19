@@ -44,37 +44,7 @@ let
   }).gradle_5_6;
 
   # fake build to pre-download deps into fixed-output derivation
-  deps = stdenv.mkDerivation {
-    name = "${name}-deps";
-    inherit src;
-    buildInputs = [ gradle perl unzip zip ];
-
-    patchPhase = ''
-      substituteInPlace ./build.gradle \
-        --replace 'artifact = "com.google.protobuf:protoc:''${protocVersion}"' "path = '${protobuf3_10}/bin/protoc'"
-      substituteInPlace ./build.gradle \
-        --replace 'artifact = "io.grpc:protoc-gen-grpc-java:''${grpcVersion}"' "path = '${grpc}/bin/protoc-gen-rpc-java'"
-    '';
-
-    buildPhase = ''
-      export GRADLE_USER_HOME=$(mktemp -d)
-      gradle --no-daemon desktop:build --exclude-task desktop:test
-    '';
-
-    # perl code mavenizes pathes (com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar -> com/squareup/okio/okio/1.13.0/okio-1.13.0.jar)
-    installPhase = ''
-      find $GRADLE_USER_HOME -type f -regex '.*\.\(jar\|pom\)' \
-        | perl -pe 's#(.*/([^/]+)/([^/]+)/([^/]+)/[0-9a-f]{30,40}/([^/\s]+))$# ($x = $2) =~ tr|\.|/|; "install -Dm444 $1 \$out/$x/$3/$4/$5" #e' \
-        | sh
-
-   '';
-
-    dontStrip = true;
-
-    outputHashAlgo = "sha256";
-    outputHashMode = "recursive";
-    outputHash = "0z58kymzgrp6qhyfl8yqnw20glmdjv1wcysiidxv1acrghs6zwh0";
-  };
+  deps = callPackage ./deps.nix {};
 
 in stdenv.mkDerivation rec {
   inherit name src;
@@ -133,7 +103,7 @@ in stdenv.mkDerivation rec {
     description = "The decentralized bitcoin exchange network";
     homepage = "https://bisq.network";
     license = licenses.mit;
-    maintainers = [ maintainers.juaningan ];
+    maintainers = with maintainers; [ juaningan emmanuelrosa ];
     platforms = [ "x86_64-linux" ];
   };
 }

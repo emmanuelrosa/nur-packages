@@ -1,0 +1,45 @@
+  { url = "https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.11.0/log4j-core-2.11.0.pom";
+    sha256 = "101qpygsxndfgxj15mrfqj9sc1gawxs5vizq5hcmgsibaz7rqqnm";
+    name = "log4j-core-2.11.0.pom";
+    mavenDir = "org/apache/logging/log4j/log4j-core/2.11.0";
+  }
+  { url = "https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.11.0/log4j-core-2.11.0.jar";
+    sha256 = "1q01h667s35rh24qldmbcbmsf7ikq95hlyd0xhpwzn535nrjj863";
+    name = "log4j-core-2.11.0.jar";
+    mavenDir = "org/apache/logging/log4j/log4j-core/2.11.0";
+  }
+  { url = "https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j/2.11.0/log4j-2.11.0.jar";
+    sha256 = "1q01h667s35rh24qldmbcbmsf7ikq95hlyd0xhpwzn535nrjj863";
+    name = "log4j-2.11.0.jar";
+    mavenDir = "org/apache/logging/log4j/log4j/2.11.0";
+  }
+  { url = "https://repo1.maven.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.pom";
+    sha256 = "0c7cpx1i07v15ps6yn0k6h7h14h8ciqnjlkqa2rarmy7ifcv5sr8";
+    name = "commons-io-2.5.pom";
+    mavenDir = "commons-io/commons-io/2.5";
+  }
+  { url = "https://repo1.maven.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.jar";
+    sha256 = "0x1la4i7s3l8q763csfrw4b8gl5vzj79h7fb1ih6hj93ils1h151";
+    name = "commons-io-2.5.jar";
+    mavenDir = "commons-io/commons-io/2.5";
+  }
+  { url = "https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom";
+    sha256 = "1rifia2i52qgzsiqibrxkhlcwhnrvmk7mbwdvjy15vgxfmm7y1hi";
+    name = "plexus-utils-3.0.24.pom";
+    mavenDir = "org/codehaus/plexus/plexus-utils/3.0.24";
+  }
+  { url = "https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar";
+    sha256 = "1d397qlp72rf03nz340rpdgh5s5k688mj2h5sh5gnsnh2a5p9vl3";
+    name = "plexus-utils-3.0.24.jar";
+    mavenDir = "org/codehaus/plexus/plexus-utils/3.0.24";
+  }
+  { url = "https://repo1.maven.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar";
+    sha256 = "029s0613pm2kymxdmw0l6788yc6qhcb6g07sv4hhg18pcal26bb4";
+    name = "jdependency-2.1.1.jar";
+    mavenDir = "org/vafer/jdependency/2.1.1";
+  }
+  { url = "https://repo1.maven.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom";
+    sha256 = "188rxr1nigd4cbh50p75qjli3aak2akkgn4zpmjkgap0rc3964sa";
+    name = "jdependency-2.1.1.pom";
+    mavenDir = "org/vafer/jdependency/2.1.1";
+  }
