@@ -11,8 +11,9 @@
 # USAGE:
 # 1. `nix build -f mkdeps.nix`
 # If needed, update the `outputHash` at REF1, below. Then repeat step 1.
-# 2. `cp ./result deps.nix`
-# 3. Build as usual: `nix build bisq-desktop`
+# 2. `./result > deps.nix`
+# 3. `cd <nixpkgs repo root>`
+# 4. Build as usual: `nix build bisq-desktop`
 
 with import <nixpkgs> { };
 let
@@ -79,7 +80,7 @@ let
     outputHashMode = "recursive";
 
     # REF1
-    outputHash = "1f2sziaj32cszvc0vgmi4j6qr3kfw67mc2x0mw6a39alr9xac8ph";
+    outputHash = "1wi6j2w0yr9p7p4c41pys98cx097mkk4fml8bkpvmb0f7n35m7z8";
   };
 
   header = ./bisq-gen-deps-header.nix.txt;
@@ -87,7 +88,7 @@ let
   missingDeps = ./bisq-gen-deps-missing.nix.txt;
 
   gen-deps-script = pkgs.writeScript "${name}-gen-deps-script" ''
-    excludes="gradle-witness bitcoinj-2a80db4 btcd-cli4j-core-27b94333 btcd-cli4j-daemon-27b94333 btcd-cli4j-core-27b94333 btcd-cli4j-parent-27b94333 tor.external-32779ac tor.native-32779ac parent-32779ac tor-32779ac tor-binary-macos-a4b868a tor-binary-linux32-a4b868a tor-binary-windows-a4b868a tor-binary-linux64-a4b868a tor-binary-a4b868a tor-binary-geoip-a4b868a jsocks-567e1cd jtorctl-1.5" 
+    excludes="gradle-witness"
     cat ${header}
     for path in $(find -L ${prebuild} -type f); do
       name=$(basename $path)
@@ -107,50 +108,25 @@ let
       then 
         continue 
       fi
-  
-      # Override some values which are derived incorrectly,
-      # for some unknown reason.
-      case "$name" in
-        "shadow-5.2.0.pom")
-          urlPrefix="https://plugins.gradle.org/m2" 
-          sha256="1yc8rwqnwj7j0gagdgyglchbg9jrjg6rcknadns68s6iym68yijl"
-          ;;
-  
-        "shadow-5.2.0.jar")
-          urlPrefix="https://plugins.gradle.org/m2" 
-          sha256="1j56ddyj71jvaypwhgz25nxh5ffsa58ykwp16pscw6pisrkdlj5p"
-          ;;
-  
-        *)
-          urlPrefix="https://repo1.maven.org/maven2" 
-          sha256=$(sha256sum -z $path | cut -d " " -f 1)
-          ;;
-      esac
-  
+
       upstreamPath=$(realpath --relative-to ${prebuild} $path)
       upstreamDir=$(dirname $upstreamPath)
-      url="$urlPrefix/$upstreamPath"
-      echo "  { url = \"$url\";"
-      echo "    sha256 = \"$sha256\";"
+      sha256=$(${pkgs.nix}/bin/nix-prefetch-url https://repo.maven.apache.org/maven2/$upstreamPath 2> /dev/null || ${pkgs.nix}/bin/nix-prefetch-url https://bintray.com/bintray/jcenter/$upstreamPath 2> /dev/null || ${pkgs.nix}/bin/nix-prefetch-url https://jitpack.io/com/$upstreamPath 2> /dev/null)
+      echo "  { sha256 = \"$sha256\";"
       echo "    name = \"$name\";"
       echo "    mavenDir = \"$upstreamDir\";"
       echo "  }"
     done
   
-    cat ${missingDeps}
     cat ${footer}
   '';
 
 in pkgs.stdenv.mkDerivation {
   name = "${name}-deps.nix";
 
-  phases = [ "buildPhase" "installPhase" ];
-
-  buildPhase = ''
-    ${gen-deps-script} > deps.nix
-  '';
+  phases = [ "installPhase" ];
   
   installPhase = ''
-    cp deps.nix $out
+    cp ${gen-deps-script} $out
   '';
 }

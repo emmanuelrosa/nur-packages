@@ -1,9 +1,17 @@
 { stdenv, fetchurl, rsync }:
 let
-  package = { name, url, sha256, mavenDir }: 
+  package = { name, sha256, mavenDir }: 
     stdenv.mkDerivation {
       name = "bisq-dep-${name}";
-      src = fetchurl { inherit url sha256; };
+
+      src = fetchurl { 
+        inherit sha256; 
+
+        urls = [ "https://repo.maven.apache.org/maven2" 
+                 "https://bintray.com/bintray/jcenter"
+                 "https://jitpack.io/com"
+               ];
+      };
 
       unpackCmd = ''
         mkdir output 
