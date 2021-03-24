@@ -43,7 +43,6 @@ let
     java = jdk;
   }).gradle_5_6;
 
-  # fake build to pre-download deps into fixed-output derivation
   deps = callPackage ./deps.nix {};
 
 in stdenv.mkDerivation rec {
