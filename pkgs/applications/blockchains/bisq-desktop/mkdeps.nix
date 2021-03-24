@@ -85,7 +85,6 @@ let
 
   header = ./bisq-gen-deps-header.nix.txt;
   footer = ./bisq-gen-deps-footer.nix.txt;
-  missingDeps = ./bisq-gen-deps-missing.nix.txt;
 
   gen-deps-script = pkgs.writeScript "${name}-gen-deps-script" ''
     excludes="gradle-witness"
@@ -109,10 +108,29 @@ let
         continue 
       fi
 
+      sha256=""
       upstreamPath=$(realpath --relative-to ${prebuild} $path)
       upstreamDir=$(dirname $upstreamPath)
-      sha256=$(${pkgs.nix}/bin/nix-prefetch-url https://repo.maven.apache.org/maven2/$upstreamPath 2> /dev/null || ${pkgs.nix}/bin/nix-prefetch-url https://bintray.com/bintray/jcenter/$upstreamPath 2> /dev/null || ${pkgs.nix}/bin/nix-prefetch-url https://jitpack.io/com/$upstreamPath 2> /dev/null)
-      echo "  { sha256 = \"$sha256\";"
+
+      for repo in https://repo.maven.apache.org/maven2 https://jitpack.io https://jcenter.bintray.com; do
+        url="$repo/$upstreamPath"
+        sha256=$(${pkgs.nix}/bin/nix-prefetch-url $url 2> /dev/null)
+        status=$?
+
+        if [[ $status -eq 0 ]]
+        then
+          break
+        fi  
+      done
+
+      if [[ "$sha256" == "" ]]
+      then
+        echo "ERROR: Unable to download $upstreamPath from any known sources."
+        exit 1
+      fi
+
+      echo "  { url = \"$url\";"
+      echo "    sha256 = \"$sha256\";"
       echo "    name = \"$name\";"
       echo "    mavenDir = \"$upstreamDir\";"
       echo "  }"
