@@ -11,42 +11,11 @@
 , imagemagick
 }:
 let
-  jdk = openjdk11.overrideAttrs (oldAttrs: rec {
-    buildInputs = lib.remove gnome2.gnome_vfs oldAttrs.buildInputs;
-    NIX_LDFLAGS = builtins.replaceStrings [ "-lgnomevfs-2" ] [ "" ] oldAttrs.NIX_LDFLAGS;
-  });
-  version = "1.6.2";
-  pname = "bisq-desktop";
-
-  src = (fetchgit rec {
-    url = https://github.com/bisq-network/bisq;
-    rev = "v${version}";
-    sha256 = "1zmf76i4yddr4zc2jcm09bgs7yya6bqv1zk68z17g3r39qmyxv1q";
-    postFetch = ''
-      cd $out
-      git clone $url
-      cd bisq
-      git lfs install --force --local
-      git lfs pull
-      cp -v p2p/src/main/resources/* $out/p2p/src/main/resources/
-      cd ..
-      rm -rf bisq
-    '';
-  }).overrideAttrs (oldAttrs: {
-    nativeBuildInputs = oldAttrs.nativeBuildInputs or [] ++ [ git-lfs ];
-  });
-
   bisq-launcher = callPackage ./launcher.nix {};
-  grpc = callPackage ./grpc-java.nix {};
-
-  gradle = (gradleGen.override {
-    java = jdk;
-  }).gradle_5_6;
-
   deps = callPackage ./deps.nix {};
-
+  common = callPackage ./common.nix {};
 in stdenv.mkDerivation rec {
-  inherit pname src version;
+  inherit (common) pname version src jdk grpc gradle;
 
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [ gradle ps tor ];

@@ -18,471 +18,6 @@ let
     };
 
   deps = map package [
-  { url = "https://repo.maven.apache.org/maven2/com/google/gradle/osdetector-gradle-plugin/1.6.0/osdetector-gradle-plugin-1.6.0.pom";
-    sha256 = "1mng5nif7q3ngdfxm36aqg3bjxjl0dfsdfgrxpx09dx1gaxjikgn";
-    name = "osdetector-gradle-plugin-1.6.0.pom";
-    mavenDir = "com/google/gradle/osdetector-gradle-plugin/1.6.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/gradle/osdetector-gradle-plugin/1.6.0/osdetector-gradle-plugin-1.6.0.jar";
-    sha256 = "1185bpkcvgaqmq91c2cd1i9aqib6vbczr61cdq65l3nal3dd6x70";
-    name = "osdetector-gradle-plugin-1.6.0.jar";
-    mavenDir = "com/google/gradle/osdetector-gradle-plugin/1.6.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-gradle-plugin/0.8.10/protobuf-gradle-plugin-0.8.10.pom";
-    sha256 = "0r1qf9m16m0kpnml8yncb0yp2296gk83pm071njx1b3ymh3wgxja";
-    name = "protobuf-gradle-plugin-0.8.10.pom";
-    mavenDir = "com/google/protobuf/protobuf-gradle-plugin/0.8.10";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-gradle-plugin/0.8.10/protobuf-gradle-plugin-0.8.10.jar";
-    sha256 = "1vz1g76mzbaaz1rwhqc63qipwl13ab7x19jym7l3wk8asvpz51rj";
-    name = "protobuf-gradle-plugin-0.8.10.jar";
-    mavenDir = "com/google/protobuf/protobuf-gradle-plugin/0.8.10";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0.pom";
-    sha256 = "1w2sl6zipz6dc5qgk97gjimmhn97cvldzj02is4fm7gcjfqc215l";
-    name = "protobuf-java-3.10.0.pom";
-    mavenDir = "com/google/protobuf/protobuf-java/3.10.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0.jar";
-    sha256 = "1j9p2hcqv6dzrb1dca930dp68yfh5xq7i5993j4p0ffbm1hps78n";
-    name = "protobuf-java-3.10.0.jar";
-    mavenDir = "com/google/protobuf/protobuf-java/3.10.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-parent/3.10.0/protobuf-parent-3.10.0.pom";
-    sha256 = "107ydmgs9vx99yjhqmqva41ajshnpw9awgsqpppzvzr5h584mn3d";
-    name = "protobuf-parent-3.10.0.pom";
-    mavenDir = "com/google/protobuf/protobuf-parent/3.10.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-bom/3.10.0/protobuf-bom-3.10.0.pom";
-    sha256 = "0hrja206kkb5a5h1c0wvpc35dsjsc8fq9bdjal5qsrgwv83j7zrj";
-    name = "protobuf-bom-3.10.0.pom";
-    mavenDir = "com/google/protobuf/protobuf-bom/3.10.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.pom";
-    sha256 = "0dlqf4baf5h1j9b2a1i96n5l3i21vm7r3xync305sszpfqfxchz7";
-    name = "guava-18.0.pom";
-    mavenDir = "com/google/guava/guava/18.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.jar";
-    sha256 = "16bgkzvk3sprn5rs9hfcpvz9vgyhy40zni1amffcxrfj0gygnr6n";
-    name = "guava-18.0.jar";
-    mavenDir = "com/google/guava/guava/18.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/28.2-jre/guava-28.2-jre.pom";
-    sha256 = "156vfamzcb0bx52f9rgmj0qy80v5mpx9pdc2r6j1rildaihm5060";
-    name = "guava-28.2-jre.pom";
-    mavenDir = "com/google/guava/guava/28.2-jre";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/28.2-jre/guava-28.2-jre.jar";
-    sha256 = "1vq8bxiql23lvhj1zirldl7iaqm82phfx155pqgks8l7mmis6fpw";
-    name = "guava-28.2-jre.jar";
-    mavenDir = "com/google/guava/guava/28.2-jre";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/18.0/guava-parent-18.0.pom";
-    sha256 = "0rmia42xirzgk3r2h1syzs7n7ib1nv84yzh87yizcmz7jn4crb54";
-    name = "guava-parent-18.0.pom";
-    mavenDir = "com/google/guava/guava-parent/18.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/28.2-jre/guava-parent-28.2-jre.pom";
-    sha256 = "1hhpavm078sz9x94nkc18xzqq5ph4gc2n9js4md6vfl1xcc6sjjh";
-    name = "guava-parent-28.2-jre.pom";
-    mavenDir = "com/google/guava/guava-parent/28.2-jre";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/26.0-android/guava-parent-26.0-android.pom";
-    sha256 = "016c2q03chipb3a9ij2d0dmsrf2yyaj8rz0skj4cx5m9djs8lsgq";
-    name = "guava-parent-26.0-android.pom";
-    mavenDir = "com/google/guava/guava-parent/26.0-android";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.pom";
-    sha256 = "16v7p0wgzi5wijl596ggcawcs1gyn5mzgqcw0xalwg8m4vdv3m0q";
-    name = "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.pom";
-    mavenDir = "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
-    sha256 = "169zydsbk48cs370lpdq5l69qgqjsq7z7ppzprzsa2i3shvs0wmk";
-    name = "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
-    mavenDir = "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.pom";
-    sha256 = "1ff40d0r4d54fbb3rzdmj6i40yy88wlm4r795gda1jzyg3744q79";
-    name = "failureaccess-1.0.1.pom";
-    mavenDir = "com/google/guava/failureaccess/1.0.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar";
-    sha256 = "09na6vwxmpw4xcqszba15avzl6k6yjfvw5jbgs1xmljdfd6fwwd1";
-    name = "failureaccess-1.0.1.jar";
-    mavenDir = "com/google/guava/failureaccess/1.0.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom";
-    sha256 = "1zldsximvzlag566i5r2i124d5vs2jw4brjy39hb4m5jy6yrv20r";
-    name = "jsr305-3.0.2.pom";
-    mavenDir = "com/google/code/findbugs/jsr305/3.0.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar";
-    sha256 = "1iyh53li6y4b8gp8bl52fagqp8iqrkp4rmwa5jb8f9izg2hd4skn";
-    name = "jsr305-3.0.2.jar";
-    mavenDir = "com/google/code/findbugs/jsr305/3.0.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.5/gson-2.8.5.pom";
-    sha256 = "14m0alr8966skrlfgk9fbll63csqj9cx133wzvcr5k7wlxbqac5q";
-    name = "gson-2.8.5.pom";
-    mavenDir = "com/google/code/gson/gson/2.8.5";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar";
-    sha256 = "10bxiss29jdkyvdap3p97dvxr6xicvicz0ynvdp9yp1nzi4h2fi3";
-    name = "gson-2.8.5.jar";
-    mavenDir = "com/google/code/gson/gson/2.8.5";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.8.5/gson-parent-2.8.5.pom";
-    sha256 = "09vv4d94lm8blnrmavbw15mln4niqiwggx9rxhwylw8sp5rfq7wg";
-    name = "gson-parent-2.8.5.pom";
-    mavenDir = "com/google/code/gson/gson-parent/2.8.5";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/javase/2.0/javase-2.0.pom";
-    sha256 = "1ylvld6cawbyr9g14859czsl4m2l3wjxhqfhjdkvivkn2b2c25ap";
-    name = "javase-2.0.pom";
-    mavenDir = "com/google/zxing/javase/2.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/javase/2.0/javase-2.0.jar";
-    sha256 = "1fbyqxnba530a647m28g57dbkcvvcjnj12bw6kbdsr16q4p3xhhf";
-    name = "javase-2.0.jar";
-    mavenDir = "com/google/zxing/javase/2.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/core/2.0/core-2.0.pom";
-    sha256 = "0mwrgl8hlnb3nadldp4v52wq1hpn973x5i83df8g5nwlcfhjry9b";
-    name = "core-2.0.pom";
-    mavenDir = "com/google/zxing/core/2.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/core/2.0/core-2.0.jar";
-    sha256 = "0a8p70za2zrpjz3yg4wy4g6lj8xiir351gh8ham5zcjajzyyiahi";
-    name = "core-2.0.jar";
-    mavenDir = "com/google/zxing/core/2.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.pom";
-    sha256 = "0mghlfk0zwyv9qqd8x6p5yx4dspwnbypscrhhx2ywnqip8jaib2z";
-    name = "j2objc-annotations-1.3.pom";
-    mavenDir = "com/google/j2objc/j2objc-annotations/1.3";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar";
-    sha256 = "0ysaws2dawf41raccmprx8vilr5nrh6d5d70q0i63gb74b4k1br1";
-    name = "j2objc-annotations-1.3.jar";
-    mavenDir = "com/google/j2objc/j2objc-annotations/1.3";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.pom";
-    sha256 = "1vavpvwnawnfhw8lcnba1zv3w6c5zc8nm1kvc37wlz2g9f5769hk";
-    name = "error_prone_annotations-2.3.4.pom";
-    mavenDir = "com/google/errorprone/error_prone_annotations/2.3.4";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar";
-    sha256 = "0b00bg90n9ni33x0mpyx4iffzrrcbyx58s0vw59nqq6fjzmddxxs";
-    name = "error_prone_annotations-2.3.4.jar";
-    mavenDir = "com/google/errorprone/error_prone_annotations/2.3.4";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.3.4/error_prone_parent-2.3.4.pom";
-    sha256 = "11i162j51sf2443ll9vs6j14lfcwknw59h6z1y7kklk0g91mnja0";
-    name = "error_prone_parent-2.3.4.pom";
-    mavenDir = "com/google/errorprone/error_prone_parent/2.3.4";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.pom";
-    sha256 = "0fhfrzg1grl5gi95bbzfkzi17zmhfbgja5k4n5g1s8r7vx2bsqhm";
-    name = "proto-google-common-protos-1.12.0.pom";
-    mavenDir = "com/google/api/grpc/proto-google-common-protos/1.12.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.jar";
-    sha256 = "0221p2s3y40iccjyv9mb3nz82ixg78lx1g979j1gn01v89xcsq5x";
-    name = "proto-google-common-protos-1.12.0.jar";
-    mavenDir = "com/google/api/grpc/proto-google-common-protos/1.12.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/inject/guice/4.2.2/guice-4.2.2.pom";
-    sha256 = "0yb4p41i123ibkk0kn8dmmw6mr9i8yh5cm35i3z0pcspmpfw7wq6";
-    name = "guice-4.2.2.pom";
-    mavenDir = "com/google/inject/guice/4.2.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/inject/guice/4.2.2/guice-4.2.2.jar";
-    sha256 = "1g1g0iz9xmk60m5yfh0zkwad72k54s1680l45y3jgddqv4dzyn6j";
-    name = "guice-4.2.2.jar";
-    mavenDir = "com/google/inject/guice/4.2.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/inject/guice-parent/4.2.2/guice-parent-4.2.2.pom";
-    sha256 = "1mipq3qqks69jh9lhnfkvqj2mnspv6ki6bvqkqxw26my48yvlx2s";
-    name = "guice-parent-4.2.2.pom";
-    mavenDir = "com/google/inject/guice-parent/4.2.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/google/5/google-5.pom";
-    sha256 = "0a38gd0j67siikp3zabrdgfkk7afnzg30pz0yfkvqgyafdg397g0";
-    name = "google-5.pom";
-    mavenDir = "com/google/google/5";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.pom";
-    sha256 = "0y5fg9n3sj7x9c1ra8i8qkm8zpgy6i84l5bhbl77m8in7ism9fz4";
-    name = "annotations-4.1.1.4.pom";
-    mavenDir = "com/google/android/annotations/4.1.1.4";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar";
-    sha256 = "05dfcnjqcv9pzc715v1dfzw4412g9c1k77d0yrd637f0hhg4wwxs";
-    name = "annotations-4.1.1.4.jar";
-    mavenDir = "com/google/android/annotations/4.1.1.4";
-  }
-  { url = "https://jcenter.bintray.com/com/github/jengelman/gradle/plugins/shadow/5.2.0/shadow-5.2.0.pom";
-    sha256 = "0lbbqbv092k6j79rigfd2bdaa1xd6dijj2a17867f5ma61d4hlva";
-    name = "shadow-5.2.0.pom";
-    mavenDir = "com/github/jengelman/gradle/plugins/shadow/5.2.0";
-  }
-  { url = "https://jcenter.bintray.com/com/github/jengelman/gradle/plugins/shadow/5.2.0/shadow-5.2.0.jar";
-    sha256 = "1j56ddyj71jvaypwhgz25nxh5ffsa58ykwp16pscw6pisrkdlj5p";
-    name = "shadow-5.2.0.jar";
-    mavenDir = "com/github/jengelman/gradle/plugins/shadow/5.2.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/webcam-capture/0.3.12/webcam-capture-0.3.12.pom";
-    sha256 = "0hafw3hn7pa134y0jbgv5k6bapda7xflg2am56d81vags3ldkxpn";
-    name = "webcam-capture-0.3.12.pom";
-    mavenDir = "com/github/sarxos/webcam-capture/0.3.12";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/webcam-capture/0.3.12/webcam-capture-0.3.12.jar";
-    sha256 = "1xk5sr7qw7sfaizz6bbplyg6kjfc7x623vr50zgz5pf3ivmbfq6r";
-    name = "webcam-capture-0.3.12.jar";
-    mavenDir = "com/github/sarxos/webcam-capture/0.3.12";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/webcam-capture-parent/0.3.12/webcam-capture-parent-0.3.12.pom";
-    sha256 = "0fcrcvzmfhzhrk2f7zr11vanlcmyi7a60xhapgvpkc2kn3bbrl6f";
-    name = "webcam-capture-parent-0.3.12.pom";
-    mavenDir = "com/github/sarxos/webcam-capture-parent/0.3.12";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/oss-parent/4/oss-parent-4.pom";
-    sha256 = "195z8sqvy7ap8i4jxlfvp0vivfhrfpnz1akrnfbkphhl9r15jq2j";
-    name = "oss-parent-4.pom";
-    mavenDir = "com/github/sarxos/oss-parent/4";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1/jsonrpc4j-1.6.0.bisq.1.pom";
-    sha256 = "1yjwbysc2iz1p16gidx10hmrynmn2s45mwy77cizmj1a7xq0garw";
-    name = "jsonrpc4j-1.6.0.bisq.1.pom";
-    mavenDir = "com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1/jsonrpc4j-1.6.0.bisq.1.jar";
-    sha256 = "1dnygzkv7ph74dacfgqacadr7v8z7qff58kd8g6m7vs00ik4law4";
-    name = "jsonrpc4j-1.6.0.bisq.1.jar";
-    mavenDir = "com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/bitcoinj/2a80db4/bitcoinj-2a80db4.pom";
-    sha256 = "0bwfaqwc9mih9dpsg9b6vsvd20cpx7f97yqnbpccl2940v5v4amx";
-    name = "bitcoinj-2a80db4.pom";
-    mavenDir = "com/github/bisq-network/bitcoinj/2a80db4";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/bitcoinj/2a80db4/bitcoinj-2a80db4.jar";
-    sha256 = "12p6a9i6z7a3a4jlfdaq9lnvmx61gmg5gpcvb444mskpazx0ivb5";
-    name = "bitcoinj-2a80db4.jar";
-    mavenDir = "com/github/bisq-network/bitcoinj/2a80db4";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.native/8db4a13/tor.native-8db4a13.pom";
-    sha256 = "0fv893dfh65w6xrara4710w36m0wv2gddaksj179kz4pzawrgr0k";
-    name = "tor.native-8db4a13.pom";
-    mavenDir = "com/github/bisq-network/netlayer/tor.native/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.native/8db4a13/tor.native-8db4a13.jar";
-    sha256 = "1gk6lhcgh188psjayypqm6ddrmbcgjy0vc2mglmxq7q74yfdygma";
-    name = "tor.native-8db4a13.jar";
-    mavenDir = "com/github/bisq-network/netlayer/tor.native/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.external/8db4a13/tor.external-8db4a13.pom";
-    sha256 = "0k8qgqxsx1zav3ps3y3cd0hp12abngnnwn8pspli430f46cq948i";
-    name = "tor.external-8db4a13.pom";
-    mavenDir = "com/github/bisq-network/netlayer/tor.external/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.external/8db4a13/tor.external-8db4a13.jar";
-    sha256 = "1b12ka6mjw94bm19kd7p4p6lmzc9wxxk253b3iq0f4l9fgzbimp1";
-    name = "tor.external-8db4a13.jar";
-    mavenDir = "com/github/bisq-network/netlayer/tor.external/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/parent/8db4a13/parent-8db4a13.pom";
-    sha256 = "00p6wlrb10dhkdiy4hxynx5578xvlkv93ga9acxlll5c43s0qin0";
-    name = "parent-8db4a13.pom";
-    mavenDir = "com/github/bisq-network/netlayer/parent/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor/8db4a13/tor-8db4a13.pom";
-    sha256 = "0hhza20mm7rq48h5mp4vjkxj5irrj0f8n7b8f4kn8hqcf5bmvjyi";
-    name = "tor-8db4a13.pom";
-    mavenDir = "com/github/bisq-network/netlayer/tor/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor/8db4a13/tor-8db4a13.jar";
-    sha256 = "0mzl0kf6z4ja3a2dlssqmsfr4ccp5d558h84r3w15qcgdv2qn69p";
-    name = "tor-8db4a13.jar";
-    mavenDir = "com/github/bisq-network/netlayer/tor/8db4a13";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227/tor-binary-linux64-b9c6227.pom";
-    sha256 = "05g7wda5idqmbxb5w7vhw51yv8z3b950wwc0wg67n1c54phmwc7f";
-    name = "tor-binary-linux64-b9c6227.pom";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227/tor-binary-linux64-b9c6227.jar";
-    sha256 = "096z8jsc4b0h0dnlhq4izvk2hal2qwrycns34h8sq8r35i5xbhfm";
-    name = "tor-binary-linux64-b9c6227.jar";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227/tor-binary-macos-b9c6227.pom";
-    sha256 = "0ka9kjfgnwpds8wjcxbdsxdgld91jmm1s5bx7clxh0ciagy9nfhl";
-    name = "tor-binary-macos-b9c6227.pom";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227/tor-binary-macos-b9c6227.jar";
-    sha256 = "1qg15zvfis77967xz4y4jkh5jjgndqbxfj2nlp0zw87085idc5k2";
-    name = "tor-binary-macos-b9c6227.jar";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227/tor-binary-linux32-b9c6227.pom";
-    sha256 = "1klirb728bgc0k39q6nwgj5fp9alx483h3rv84lhasjmfv2046d0";
-    name = "tor-binary-linux32-b9c6227.pom";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227/tor-binary-linux32-b9c6227.jar";
-    sha256 = "0l7h5aymsghjpmdjz1sijirq35k7gxfzw040wm22mxcfyyanaaxq";
-    name = "tor-binary-linux32-b9c6227.jar";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227/tor-binary-windows-b9c6227.pom";
-    sha256 = "13sy0814n6c36j6f43pglkynchs88sg334aks0qjyjp5gsiwyrz0";
-    name = "tor-binary-windows-b9c6227.pom";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227/tor-binary-windows-b9c6227.jar";
-    sha256 = "0qx2wgirsa9ka207n1ri3iw35c867fw01ggd9rvkz1hhfqfh7898";
-    name = "tor-binary-windows-b9c6227.jar";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary/b9c6227/tor-binary-b9c6227.pom";
-    sha256 = "0hlvj7r0z0cqqydf4r1v6m9pjz9fbsq64sxrazq8bx8x58mhrvzi";
-    name = "tor-binary-b9c6227.pom";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227/tor-binary-geoip-b9c6227.pom";
-    sha256 = "06q0q529izinqyhzpzkizdhdrg939an4450ilzxgqcmk2r106z8r";
-    name = "tor-binary-geoip-b9c6227.pom";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227/tor-binary-geoip-b9c6227.jar";
-    sha256 = "0kiw85l8kv69jragl985yly7c89dd2ih4yn13qrdvdcihlnvzvyg";
-    name = "tor-binary-geoip-b9c6227.jar";
-    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227";
-  }
-  { url = "https://jitpack.io/com/github/ravn/jsocks/567e1cd/jsocks-567e1cd.pom";
-    sha256 = "0rlw0yaq9xa7dr8af07664h46iqw58cfn29zyzarijykmr74myqh";
-    name = "jsocks-567e1cd.pom";
-    mavenDir = "com/github/ravn/jsocks/567e1cd";
-  }
-  { url = "https://jitpack.io/com/github/ravn/jsocks/567e1cd/jsocks-567e1cd.jar";
-    sha256 = "1922sx4cvn7mzyzaw3a1g6im48zzk16x2jjf4kabdci7y0560w9w";
-    name = "jsocks-567e1cd.jar";
-    mavenDir = "com/github/ravn/jsocks/567e1cd";
-  }
-  { url = "https://jitpack.io/com/github/JesusMcCloud/jtorctl/1.5/jtorctl-1.5.pom";
-    sha256 = "193ijba475b1phqzdh6n6jzg7gr3kv1mqzlf5iv53h7p8rm6g070";
-    name = "jtorctl-1.5.pom";
-    mavenDir = "com/github/JesusMcCloud/jtorctl/1.5";
-  }
-  { url = "https://jitpack.io/com/github/JesusMcCloud/jtorctl/1.5/jtorctl-1.5.jar";
-    sha256 = "1rap1qkkdj424dvf8lxmyb4q17z4xl9kjb2q7krb4pm8nnqn379q";
-    name = "jtorctl-1.5.jar";
-    mavenDir = "com/github/JesusMcCloud/jtorctl/1.5";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.8.10/jackson-bom-2.8.10.pom";
-    sha256 = "08xk707gvhdhfgy5hzzfskhcl9gx75025w2f385cslcn80b053z9";
-    name = "jackson-bom-2.8.10.pom";
-    mavenDir = "com/fasterxml/jackson/jackson-bom/2.8.10";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.12.1/jackson-bom-2.12.1.pom";
-    sha256 = "0f4aj3vfzb8f5vyhfahj79c77r5wky62820sdrnm3c0v4fj20fq8";
-    name = "jackson-bom-2.12.1.pom";
-    mavenDir = "com/fasterxml/jackson/jackson-bom/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.8/jackson-parent-2.8.pom";
-    sha256 = "0n4kppglr435ilgk3vxh3f58hsabw45nq8i8jz4c4a9s3969jl9v";
-    name = "jackson-parent-2.8.pom";
-    mavenDir = "com/fasterxml/jackson/jackson-parent/2.8";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.12/jackson-parent-2.12.pom";
-    sha256 = "0nw7q0vl7ahkizjdb3r301cffmawscr6q6xz7lbrzq5dg4b1rak2";
-    name = "jackson-parent-2.12.pom";
-    mavenDir = "com/fasterxml/jackson/jackson-parent/2.12";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.12.1/jackson-base-2.12.1.pom";
-    sha256 = "1x8r4h9nq29fjks7zimidfh41mqd7j4b7nr1h187f6d3an3wga4k";
-    name = "jackson-base-2.12.1.pom";
-    mavenDir = "com/fasterxml/jackson/jackson-base/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.12.1/jackson-annotations-2.12.1.pom";
-    sha256 = "12qhlriwglga0xswrsv9n9nhmvpykp2v2ggirln77gi6zchmf31y";
-    name = "jackson-annotations-2.12.1.pom";
-    mavenDir = "com/fasterxml/jackson/core/jackson-annotations/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.12.1/jackson-annotations-2.12.1.jar";
-    sha256 = "0wr8b4vxhp06xamr60mwqfil8wx9kkr95whi9sl6l7n8lvgyyg10";
-    name = "jackson-annotations-2.12.1.jar";
-    mavenDir = "com/fasterxml/jackson/core/jackson-annotations/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.12.1/jackson-core-2.12.1.pom";
-    sha256 = "09j6w1kynccdp91rrw2db61z92vawg8l47jl7ykmrznw58mv82ad";
-    name = "jackson-core-2.12.1.pom";
-    mavenDir = "com/fasterxml/jackson/core/jackson-core/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.12.1/jackson-core-2.12.1.jar";
-    sha256 = "0my2y0cbpmh76937jyzb9z66jwvr51jsivlhsn3hpj70xav9r2fc";
-    name = "jackson-core-2.12.1.jar";
-    mavenDir = "com/fasterxml/jackson/core/jackson-core/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.12.1/jackson-databind-2.12.1.pom";
-    sha256 = "08x2dzzlszwqsrb3l6h6qlzr5w4wwbxn6c6n1k10h907sncn74lq";
-    name = "jackson-databind-2.12.1.pom";
-    mavenDir = "com/fasterxml/jackson/core/jackson-databind/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.12.1/jackson-databind-2.12.1.jar";
-    sha256 = "183ajfprfm817h36mxhaaihzjg9j8plsylbx8jc9rmfyxcl3rjpj";
-    name = "jackson-databind-2.12.1.jar";
-    mavenDir = "com/fasterxml/jackson/core/jackson-databind/2.12.1";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/27/oss-parent-27.pom";
-    sha256 = "1sxy16jh605l7hqlvqbch7aqyv3jhs5lcmlp4jqmg032zn4g7f5r";
-    name = "oss-parent-27.pom";
-    mavenDir = "com/fasterxml/oss-parent/27";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/41/oss-parent-41.pom";
-    sha256 = "12jxjjyzpjls8qyj3s5bkhs3z0ckxl4fzg10jdvca2s0vnj0yrdg";
-    name = "oss-parent-41.pom";
-    mavenDir = "com/fasterxml/oss-parent/41";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6.pom";
-    sha256 = "0vw9qd1067as994z1p322ay1yxxidhqa7842d281gm7pfcwgsnfd";
-    name = "jfoenix-9.0.6.pom";
-    mavenDir = "com/jfoenix/jfoenix/9.0.6";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6.jar";
-    sha256 = "1rlggy13ykcnn0b2d6bjm27s9d8p6yws34dksp4knz760mxf6fa7";
-    name = "jfoenix-9.0.6.jar";
-    mavenDir = "com/jfoenix/jfoenix/9.0.6";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/googlecode/jcsv/jcsv/1.4.0/jcsv-1.4.0.pom";
-    sha256 = "1ml9h9sjjfk5vag7axbqi6w8r2lcjimjimcnn1fvfk6dazxg722p";
-    name = "jcsv-1.4.0.pom";
-    mavenDir = "com/googlecode/jcsv/jcsv/1.4.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/googlecode/jcsv/jcsv/1.4.0/jcsv-1.4.0.jar";
-    sha256 = "18hlhxxia3jrxmh0cybh9yilb0h37da89hjwcg1d5j4hbrqpvjkk";
-    name = "jcsv-1.4.0.jar";
-    mavenDir = "com/googlecode/jcsv/jcsv/1.4.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/nativelibs4java/bridj/0.7.0/bridj-0.7.0.pom";
-    sha256 = "01g4np638d6bgf6nvcpbjq2qgkzg7j36xflxs3yilxraaswmd1vl";
-    name = "bridj-0.7.0.pom";
-    mavenDir = "com/nativelibs4java/bridj/0.7.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/nativelibs4java/bridj/0.7.0/bridj-0.7.0.jar";
-    sha256 = "1ksrsrh5hfvfwnry2dwyirg1yax6zfp3vsvdwlbbrripcsdws6qh";
-    name = "bridj-0.7.0.jar";
-    mavenDir = "com/nativelibs4java/bridj/0.7.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/com/nativelibs4java/nativelibs4java-parent/1.9/nativelibs4java-parent-1.9.pom";
-    sha256 = "1jk2wnr2xq2dkn7dz5f5hclp9mwd8b6gzraqblhqhjwir9vjl4qj";
-    name = "nativelibs4java-parent-1.9.pom";
-    mavenDir = "com/nativelibs4java/nativelibs4java-parent/1.9";
-  }
   { url = "https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-gradle-plugin/1.5.10.RELEASE/spring-boot-gradle-plugin-1.5.10.RELEASE.pom";
     sha256 = "0yc2863h6lxi040wq3bycxxqrckpk4cz5lcvq9c0gq7k5j10x22v";
     name = "spring-boot-gradle-plugin-1.5.10.RELEASE.pom";
@@ -633,16 +168,6 @@ let
     name = "commons-compress-1.18.jar";
     mavenDir = "org/apache/commons/commons-compress/1.18";
   }
-  { url = "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.pom";
-    sha256 = "15wspyhk35470n4kkn56895k9px56a4jf9gqlx53samplygjv0cg";
-    name = "httpcore-4.4.13.pom";
-    mavenDir = "org/apache/httpcomponents/httpcore/4.4.13";
-  }
-  { url = "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar";
-    sha256 = "091lnk100aqdg2bwbyg8rnp64dyfpz6kgicylg7my92317a8jvp0";
-    name = "httpcore-4.4.13.jar";
-    mavenDir = "org/apache/httpcomponents/httpcore/4.4.13";
-  }
   { url = "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.12/httpclient-4.5.12.pom";
     sha256 = "09qm8nd7gdjw9lhcf9qxq71dny6gniby02mni8la5fkp9ard36j1";
     name = "httpclient-4.5.12.pom";
@@ -652,6 +177,16 @@ let
     sha256 = "14rvpllwbswia1ph7ylwzw1b2zvrrfdlvllxapp1bn2xp9d0cpxw";
     name = "httpclient-4.5.12.jar";
     mavenDir = "org/apache/httpcomponents/httpclient/4.5.12";
+  }
+  { url = "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.pom";
+    sha256 = "15wspyhk35470n4kkn56895k9px56a4jf9gqlx53samplygjv0cg";
+    name = "httpcore-4.4.13.pom";
+    mavenDir = "org/apache/httpcomponents/httpcore/4.4.13";
+  }
+  { url = "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar";
+    sha256 = "091lnk100aqdg2bwbyg8rnp64dyfpz6kgicylg7my92317a8jvp0";
+    name = "httpcore-4.4.13.jar";
+    mavenDir = "org/apache/httpcomponents/httpcore/4.4.13";
   }
   { url = "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.13/httpcomponents-core-4.4.13.pom";
     sha256 = "0swka7gnj1axprbnyb7al1a7mj7lfj5wq1g0akpwf5s5iq0ffm65";
@@ -688,6 +223,26 @@ let
     name = "groovy-backports-compat23-2.4.15.jar";
     mavenDir = "org/codehaus/groovy/groovy-backports-compat23/2.4.15";
   }
+  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/11.0.2/javafx-fxml-11.0.2.pom";
+    sha256 = "060gqlyy5jiqq6ik9brg7mg0dkqz2s5n4ds400kajiq8fcykr9l6";
+    name = "javafx-fxml-11.0.2.pom";
+    mavenDir = "org/openjfx/javafx-fxml/11.0.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/11.0.2/javafx-fxml-11.0.2-linux.jar";
+    sha256 = "151g1s4sdx2s93razsa8z7qj6968idxi5yh47rigd3aqphjlpi12";
+    name = "javafx-fxml-11.0.2-linux.jar";
+    mavenDir = "org/openjfx/javafx-fxml/11.0.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-swing/11.0.2/javafx-swing-11.0.2.pom";
+    sha256 = "1cq75ljw6vjrxv4whsfg1h1iaz6v9g0kqw8jvs33grhvb0kfbsw6";
+    name = "javafx-swing-11.0.2.pom";
+    mavenDir = "org/openjfx/javafx-swing/11.0.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-swing/11.0.2/javafx-swing-11.0.2-linux.jar";
+    sha256 = "0k5iclgcvf424xm4k94x2mrv2b4s1hdp5yayvkl68a2vs3ddnqp5";
+    name = "javafx-swing-11.0.2-linux.jar";
+    mavenDir = "org/openjfx/javafx-swing/11.0.2";
+  }
   { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-controls/11.0.2/javafx-controls-11.0.2.pom";
     sha256 = "00wdsypvcsm0knls1h3hsk9l46qi7fqwzn301dv0j7g8pb2n33jq";
     name = "javafx-controls-11.0.2.pom";
@@ -702,26 +257,6 @@ let
     sha256 = "15qadaw49hyz6cdzvrcwp1prrf8idcjmjrddkxlgqxyfyhn08wn1";
     name = "javafx-controls-11.0.2-linux.jar";
     mavenDir = "org/openjfx/javafx-controls/11.0.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-swing/11.0.2/javafx-swing-11.0.2.pom";
-    sha256 = "1cq75ljw6vjrxv4whsfg1h1iaz6v9g0kqw8jvs33grhvb0kfbsw6";
-    name = "javafx-swing-11.0.2.pom";
-    mavenDir = "org/openjfx/javafx-swing/11.0.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-swing/11.0.2/javafx-swing-11.0.2-linux.jar";
-    sha256 = "0k5iclgcvf424xm4k94x2mrv2b4s1hdp5yayvkl68a2vs3ddnqp5";
-    name = "javafx-swing-11.0.2-linux.jar";
-    mavenDir = "org/openjfx/javafx-swing/11.0.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/11.0.2/javafx-fxml-11.0.2.pom";
-    sha256 = "060gqlyy5jiqq6ik9brg7mg0dkqz2s5n4ds400kajiq8fcykr9l6";
-    name = "javafx-fxml-11.0.2.pom";
-    mavenDir = "org/openjfx/javafx-fxml/11.0.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx-fxml/11.0.2/javafx-fxml-11.0.2-linux.jar";
-    sha256 = "151g1s4sdx2s93razsa8z7qj6968idxi5yh47rigd3aqphjlpi12";
-    name = "javafx-fxml-11.0.2-linux.jar";
-    mavenDir = "org/openjfx/javafx-fxml/11.0.2";
   }
   { url = "https://repo.maven.apache.org/maven2/org/openjfx/javafx/11.0.2/javafx-11.0.2.pom";
     sha256 = "1n2sczkscqz0x3qfy6dcwgcnmr247sqzzvwq988pbccm1lyz0rxw";
@@ -833,16 +368,6 @@ let
     name = "bcprov-jdk15on-1.63.jar";
     mavenDir = "org/bouncycastle/bcprov-jdk15on/1.63";
   }
-  { url = "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.pom";
-    sha256 = "15y3p0xicxjx6y38pj39vm3q56xqnfhgf6yyplcrhdpzxlmynnln";
-    name = "annotations-13.0.pom";
-    mavenDir = "org/jetbrains/annotations/13.0";
-  }
-  { url = "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.jar";
-    sha256 = "0y0l26ys36zlrsw98335a7wc1cl894zc1jjyj8sgvmg2r06s3qmc";
-    name = "annotations-13.0.jar";
-    mavenDir = "org/jetbrains/annotations/13.0";
-  }
   { url = "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.3.41/kotlin-stdlib-jdk8-1.3.41.pom";
     sha256 = "10ph798l39gi5clkpj8p2xsd02sy3i997m6wgp4vf25vqdc6g1g3";
     name = "kotlin-stdlib-jdk8-1.3.41.pom";
@@ -883,6 +408,16 @@ let
     name = "kotlin-stdlib-common-1.3.41.jar";
     mavenDir = "org/jetbrains/kotlin/kotlin-stdlib-common/1.3.41";
   }
+  { url = "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.pom";
+    sha256 = "15y3p0xicxjx6y38pj39vm3q56xqnfhgf6yyplcrhdpzxlmynnln";
+    name = "annotations-13.0.pom";
+    mavenDir = "org/jetbrains/annotations/13.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.jar";
+    sha256 = "0y0l26ys36zlrsw98335a7wc1cl894zc1jjyj8sgvmg2r06s3qmc";
+    name = "annotations-13.0.jar";
+    mavenDir = "org/jetbrains/annotations/13.0";
+  }
   { url = "https://repo.maven.apache.org/maven2/org/tukaani/xz/1.6/xz-1.6.pom";
     sha256 = "03q2nh1dp2dbfcbpmsx16zn87by4vl2191ln876kxbgh9jc3z106";
     name = "xz-1.6.pom";
@@ -902,6 +437,471 @@ let
     sha256 = "1h3bfl4401q7a3s9j42yzkzfa0m5zxccxvvvpdc2l2d2xw8b4ggi";
     name = "lombok-1.18.2.jar";
     mavenDir = "org/projectlombok/lombok/1.18.2";
+  }
+  { url = "https://jcenter.bintray.com/com/github/jengelman/gradle/plugins/shadow/5.2.0/shadow-5.2.0.pom";
+    sha256 = "0lbbqbv092k6j79rigfd2bdaa1xd6dijj2a17867f5ma61d4hlva";
+    name = "shadow-5.2.0.pom";
+    mavenDir = "com/github/jengelman/gradle/plugins/shadow/5.2.0";
+  }
+  { url = "https://jcenter.bintray.com/com/github/jengelman/gradle/plugins/shadow/5.2.0/shadow-5.2.0.jar";
+    sha256 = "1j56ddyj71jvaypwhgz25nxh5ffsa58ykwp16pscw6pisrkdlj5p";
+    name = "shadow-5.2.0.jar";
+    mavenDir = "com/github/jengelman/gradle/plugins/shadow/5.2.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/webcam-capture/0.3.12/webcam-capture-0.3.12.pom";
+    sha256 = "0hafw3hn7pa134y0jbgv5k6bapda7xflg2am56d81vags3ldkxpn";
+    name = "webcam-capture-0.3.12.pom";
+    mavenDir = "com/github/sarxos/webcam-capture/0.3.12";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/webcam-capture/0.3.12/webcam-capture-0.3.12.jar";
+    sha256 = "1xk5sr7qw7sfaizz6bbplyg6kjfc7x623vr50zgz5pf3ivmbfq6r";
+    name = "webcam-capture-0.3.12.jar";
+    mavenDir = "com/github/sarxos/webcam-capture/0.3.12";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/webcam-capture-parent/0.3.12/webcam-capture-parent-0.3.12.pom";
+    sha256 = "0fcrcvzmfhzhrk2f7zr11vanlcmyi7a60xhapgvpkc2kn3bbrl6f";
+    name = "webcam-capture-parent-0.3.12.pom";
+    mavenDir = "com/github/sarxos/webcam-capture-parent/0.3.12";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/github/sarxos/oss-parent/4/oss-parent-4.pom";
+    sha256 = "195z8sqvy7ap8i4jxlfvp0vivfhrfpnz1akrnfbkphhl9r15jq2j";
+    name = "oss-parent-4.pom";
+    mavenDir = "com/github/sarxos/oss-parent/4";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1/jsonrpc4j-1.6.0.bisq.1.pom";
+    sha256 = "1yjwbysc2iz1p16gidx10hmrynmn2s45mwy77cizmj1a7xq0garw";
+    name = "jsonrpc4j-1.6.0.bisq.1.pom";
+    mavenDir = "com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1/jsonrpc4j-1.6.0.bisq.1.jar";
+    sha256 = "1dnygzkv7ph74dacfgqacadr7v8z7qff58kd8g6m7vs00ik4law4";
+    name = "jsonrpc4j-1.6.0.bisq.1.jar";
+    mavenDir = "com/github/bisq-network/jsonrpc4j/1.6.0.bisq.1";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/bitcoinj/2a80db4/bitcoinj-2a80db4.pom";
+    sha256 = "0bwfaqwc9mih9dpsg9b6vsvd20cpx7f97yqnbpccl2940v5v4amx";
+    name = "bitcoinj-2a80db4.pom";
+    mavenDir = "com/github/bisq-network/bitcoinj/2a80db4";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/bitcoinj/2a80db4/bitcoinj-2a80db4.jar";
+    sha256 = "12p6a9i6z7a3a4jlfdaq9lnvmx61gmg5gpcvb444mskpazx0ivb5";
+    name = "bitcoinj-2a80db4.jar";
+    mavenDir = "com/github/bisq-network/bitcoinj/2a80db4";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.native/8db4a13/tor.native-8db4a13.pom";
+    sha256 = "0fv893dfh65w6xrara4710w36m0wv2gddaksj179kz4pzawrgr0k";
+    name = "tor.native-8db4a13.pom";
+    mavenDir = "com/github/bisq-network/netlayer/tor.native/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.native/8db4a13/tor.native-8db4a13.jar";
+    sha256 = "1gk6lhcgh188psjayypqm6ddrmbcgjy0vc2mglmxq7q74yfdygma";
+    name = "tor.native-8db4a13.jar";
+    mavenDir = "com/github/bisq-network/netlayer/tor.native/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.external/8db4a13/tor.external-8db4a13.pom";
+    sha256 = "0k8qgqxsx1zav3ps3y3cd0hp12abngnnwn8pspli430f46cq948i";
+    name = "tor.external-8db4a13.pom";
+    mavenDir = "com/github/bisq-network/netlayer/tor.external/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor.external/8db4a13/tor.external-8db4a13.jar";
+    sha256 = "1b12ka6mjw94bm19kd7p4p6lmzc9wxxk253b3iq0f4l9fgzbimp1";
+    name = "tor.external-8db4a13.jar";
+    mavenDir = "com/github/bisq-network/netlayer/tor.external/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/parent/8db4a13/parent-8db4a13.pom";
+    sha256 = "00p6wlrb10dhkdiy4hxynx5578xvlkv93ga9acxlll5c43s0qin0";
+    name = "parent-8db4a13.pom";
+    mavenDir = "com/github/bisq-network/netlayer/parent/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor/8db4a13/tor-8db4a13.pom";
+    sha256 = "0hhza20mm7rq48h5mp4vjkxj5irrj0f8n7b8f4kn8hqcf5bmvjyi";
+    name = "tor-8db4a13.pom";
+    mavenDir = "com/github/bisq-network/netlayer/tor/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/netlayer/tor/8db4a13/tor-8db4a13.jar";
+    sha256 = "0mzl0kf6z4ja3a2dlssqmsfr4ccp5d558h84r3w15qcgdv2qn69p";
+    name = "tor-8db4a13.jar";
+    mavenDir = "com/github/bisq-network/netlayer/tor/8db4a13";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227/tor-binary-linux32-b9c6227.pom";
+    sha256 = "1klirb728bgc0k39q6nwgj5fp9alx483h3rv84lhasjmfv2046d0";
+    name = "tor-binary-linux32-b9c6227.pom";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227/tor-binary-linux32-b9c6227.jar";
+    sha256 = "0l7h5aymsghjpmdjz1sijirq35k7gxfzw040wm22mxcfyyanaaxq";
+    name = "tor-binary-linux32-b9c6227.jar";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux32/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227/tor-binary-windows-b9c6227.pom";
+    sha256 = "13sy0814n6c36j6f43pglkynchs88sg334aks0qjyjp5gsiwyrz0";
+    name = "tor-binary-windows-b9c6227.pom";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227/tor-binary-windows-b9c6227.jar";
+    sha256 = "0qx2wgirsa9ka207n1ri3iw35c867fw01ggd9rvkz1hhfqfh7898";
+    name = "tor-binary-windows-b9c6227.jar";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-windows/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227/tor-binary-linux64-b9c6227.pom";
+    sha256 = "05g7wda5idqmbxb5w7vhw51yv8z3b950wwc0wg67n1c54phmwc7f";
+    name = "tor-binary-linux64-b9c6227.pom";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227/tor-binary-linux64-b9c6227.jar";
+    sha256 = "096z8jsc4b0h0dnlhq4izvk2hal2qwrycns34h8sq8r35i5xbhfm";
+    name = "tor-binary-linux64-b9c6227.jar";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-linux64/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227/tor-binary-macos-b9c6227.pom";
+    sha256 = "0ka9kjfgnwpds8wjcxbdsxdgld91jmm1s5bx7clxh0ciagy9nfhl";
+    name = "tor-binary-macos-b9c6227.pom";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227/tor-binary-macos-b9c6227.jar";
+    sha256 = "1qg15zvfis77967xz4y4jkh5jjgndqbxfj2nlp0zw87085idc5k2";
+    name = "tor-binary-macos-b9c6227.jar";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-macos/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary/b9c6227/tor-binary-b9c6227.pom";
+    sha256 = "0hlvj7r0z0cqqydf4r1v6m9pjz9fbsq64sxrazq8bx8x58mhrvzi";
+    name = "tor-binary-b9c6227.pom";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227/tor-binary-geoip-b9c6227.pom";
+    sha256 = "06q0q529izinqyhzpzkizdhdrg939an4450ilzxgqcmk2r106z8r";
+    name = "tor-binary-geoip-b9c6227.pom";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227/tor-binary-geoip-b9c6227.jar";
+    sha256 = "0kiw85l8kv69jragl985yly7c89dd2ih4yn13qrdvdcihlnvzvyg";
+    name = "tor-binary-geoip-b9c6227.jar";
+    mavenDir = "com/github/bisq-network/tor-binary/tor-binary-geoip/b9c6227";
+  }
+  { url = "https://jitpack.io/com/github/ravn/jsocks/567e1cd/jsocks-567e1cd.pom";
+    sha256 = "0rlw0yaq9xa7dr8af07664h46iqw58cfn29zyzarijykmr74myqh";
+    name = "jsocks-567e1cd.pom";
+    mavenDir = "com/github/ravn/jsocks/567e1cd";
+  }
+  { url = "https://jitpack.io/com/github/ravn/jsocks/567e1cd/jsocks-567e1cd.jar";
+    sha256 = "1922sx4cvn7mzyzaw3a1g6im48zzk16x2jjf4kabdci7y0560w9w";
+    name = "jsocks-567e1cd.jar";
+    mavenDir = "com/github/ravn/jsocks/567e1cd";
+  }
+  { url = "https://jitpack.io/com/github/JesusMcCloud/jtorctl/1.5/jtorctl-1.5.pom";
+    sha256 = "193ijba475b1phqzdh6n6jzg7gr3kv1mqzlf5iv53h7p8rm6g070";
+    name = "jtorctl-1.5.pom";
+    mavenDir = "com/github/JesusMcCloud/jtorctl/1.5";
+  }
+  { url = "https://jitpack.io/com/github/JesusMcCloud/jtorctl/1.5/jtorctl-1.5.jar";
+    sha256 = "1rap1qkkdj424dvf8lxmyb4q17z4xl9kjb2q7krb4pm8nnqn379q";
+    name = "jtorctl-1.5.jar";
+    mavenDir = "com/github/JesusMcCloud/jtorctl/1.5";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/gradle/osdetector-gradle-plugin/1.6.0/osdetector-gradle-plugin-1.6.0.pom";
+    sha256 = "1mng5nif7q3ngdfxm36aqg3bjxjl0dfsdfgrxpx09dx1gaxjikgn";
+    name = "osdetector-gradle-plugin-1.6.0.pom";
+    mavenDir = "com/google/gradle/osdetector-gradle-plugin/1.6.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/gradle/osdetector-gradle-plugin/1.6.0/osdetector-gradle-plugin-1.6.0.jar";
+    sha256 = "1185bpkcvgaqmq91c2cd1i9aqib6vbczr61cdq65l3nal3dd6x70";
+    name = "osdetector-gradle-plugin-1.6.0.jar";
+    mavenDir = "com/google/gradle/osdetector-gradle-plugin/1.6.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-gradle-plugin/0.8.10/protobuf-gradle-plugin-0.8.10.pom";
+    sha256 = "0r1qf9m16m0kpnml8yncb0yp2296gk83pm071njx1b3ymh3wgxja";
+    name = "protobuf-gradle-plugin-0.8.10.pom";
+    mavenDir = "com/google/protobuf/protobuf-gradle-plugin/0.8.10";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-gradle-plugin/0.8.10/protobuf-gradle-plugin-0.8.10.jar";
+    sha256 = "1vz1g76mzbaaz1rwhqc63qipwl13ab7x19jym7l3wk8asvpz51rj";
+    name = "protobuf-gradle-plugin-0.8.10.jar";
+    mavenDir = "com/google/protobuf/protobuf-gradle-plugin/0.8.10";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0.pom";
+    sha256 = "1w2sl6zipz6dc5qgk97gjimmhn97cvldzj02is4fm7gcjfqc215l";
+    name = "protobuf-java-3.10.0.pom";
+    mavenDir = "com/google/protobuf/protobuf-java/3.10.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0.jar";
+    sha256 = "1j9p2hcqv6dzrb1dca930dp68yfh5xq7i5993j4p0ffbm1hps78n";
+    name = "protobuf-java-3.10.0.jar";
+    mavenDir = "com/google/protobuf/protobuf-java/3.10.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-parent/3.10.0/protobuf-parent-3.10.0.pom";
+    sha256 = "107ydmgs9vx99yjhqmqva41ajshnpw9awgsqpppzvzr5h584mn3d";
+    name = "protobuf-parent-3.10.0.pom";
+    mavenDir = "com/google/protobuf/protobuf-parent/3.10.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-bom/3.10.0/protobuf-bom-3.10.0.pom";
+    sha256 = "0hrja206kkb5a5h1c0wvpc35dsjsc8fq9bdjal5qsrgwv83j7zrj";
+    name = "protobuf-bom-3.10.0.pom";
+    mavenDir = "com/google/protobuf/protobuf-bom/3.10.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.pom";
+    sha256 = "0dlqf4baf5h1j9b2a1i96n5l3i21vm7r3xync305sszpfqfxchz7";
+    name = "guava-18.0.pom";
+    mavenDir = "com/google/guava/guava/18.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.jar";
+    sha256 = "16bgkzvk3sprn5rs9hfcpvz9vgyhy40zni1amffcxrfj0gygnr6n";
+    name = "guava-18.0.jar";
+    mavenDir = "com/google/guava/guava/18.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/28.2-jre/guava-28.2-jre.pom";
+    sha256 = "156vfamzcb0bx52f9rgmj0qy80v5mpx9pdc2r6j1rildaihm5060";
+    name = "guava-28.2-jre.pom";
+    mavenDir = "com/google/guava/guava/28.2-jre";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava/28.2-jre/guava-28.2-jre.jar";
+    sha256 = "1vq8bxiql23lvhj1zirldl7iaqm82phfx155pqgks8l7mmis6fpw";
+    name = "guava-28.2-jre.jar";
+    mavenDir = "com/google/guava/guava/28.2-jre";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/18.0/guava-parent-18.0.pom";
+    sha256 = "0rmia42xirzgk3r2h1syzs7n7ib1nv84yzh87yizcmz7jn4crb54";
+    name = "guava-parent-18.0.pom";
+    mavenDir = "com/google/guava/guava-parent/18.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/28.2-jre/guava-parent-28.2-jre.pom";
+    sha256 = "1hhpavm078sz9x94nkc18xzqq5ph4gc2n9js4md6vfl1xcc6sjjh";
+    name = "guava-parent-28.2-jre.pom";
+    mavenDir = "com/google/guava/guava-parent/28.2-jre";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/26.0-android/guava-parent-26.0-android.pom";
+    sha256 = "016c2q03chipb3a9ij2d0dmsrf2yyaj8rz0skj4cx5m9djs8lsgq";
+    name = "guava-parent-26.0-android.pom";
+    mavenDir = "com/google/guava/guava-parent/26.0-android";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.pom";
+    sha256 = "1ff40d0r4d54fbb3rzdmj6i40yy88wlm4r795gda1jzyg3744q79";
+    name = "failureaccess-1.0.1.pom";
+    mavenDir = "com/google/guava/failureaccess/1.0.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar";
+    sha256 = "09na6vwxmpw4xcqszba15avzl6k6yjfvw5jbgs1xmljdfd6fwwd1";
+    name = "failureaccess-1.0.1.jar";
+    mavenDir = "com/google/guava/failureaccess/1.0.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.pom";
+    sha256 = "16v7p0wgzi5wijl596ggcawcs1gyn5mzgqcw0xalwg8m4vdv3m0q";
+    name = "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.pom";
+    mavenDir = "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
+    sha256 = "169zydsbk48cs370lpdq5l69qgqjsq7z7ppzprzsa2i3shvs0wmk";
+    name = "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar";
+    mavenDir = "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom";
+    sha256 = "1zldsximvzlag566i5r2i124d5vs2jw4brjy39hb4m5jy6yrv20r";
+    name = "jsr305-3.0.2.pom";
+    mavenDir = "com/google/code/findbugs/jsr305/3.0.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar";
+    sha256 = "1iyh53li6y4b8gp8bl52fagqp8iqrkp4rmwa5jb8f9izg2hd4skn";
+    name = "jsr305-3.0.2.jar";
+    mavenDir = "com/google/code/findbugs/jsr305/3.0.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.5/gson-2.8.5.pom";
+    sha256 = "14m0alr8966skrlfgk9fbll63csqj9cx133wzvcr5k7wlxbqac5q";
+    name = "gson-2.8.5.pom";
+    mavenDir = "com/google/code/gson/gson/2.8.5";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar";
+    sha256 = "10bxiss29jdkyvdap3p97dvxr6xicvicz0ynvdp9yp1nzi4h2fi3";
+    name = "gson-2.8.5.jar";
+    mavenDir = "com/google/code/gson/gson/2.8.5";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.8.5/gson-parent-2.8.5.pom";
+    sha256 = "09vv4d94lm8blnrmavbw15mln4niqiwggx9rxhwylw8sp5rfq7wg";
+    name = "gson-parent-2.8.5.pom";
+    mavenDir = "com/google/code/gson/gson-parent/2.8.5";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/javase/2.0/javase-2.0.pom";
+    sha256 = "1ylvld6cawbyr9g14859czsl4m2l3wjxhqfhjdkvivkn2b2c25ap";
+    name = "javase-2.0.pom";
+    mavenDir = "com/google/zxing/javase/2.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/javase/2.0/javase-2.0.jar";
+    sha256 = "1fbyqxnba530a647m28g57dbkcvvcjnj12bw6kbdsr16q4p3xhhf";
+    name = "javase-2.0.jar";
+    mavenDir = "com/google/zxing/javase/2.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/core/2.0/core-2.0.pom";
+    sha256 = "0mwrgl8hlnb3nadldp4v52wq1hpn973x5i83df8g5nwlcfhjry9b";
+    name = "core-2.0.pom";
+    mavenDir = "com/google/zxing/core/2.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/zxing/core/2.0/core-2.0.jar";
+    sha256 = "0a8p70za2zrpjz3yg4wy4g6lj8xiir351gh8ham5zcjajzyyiahi";
+    name = "core-2.0.jar";
+    mavenDir = "com/google/zxing/core/2.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.pom";
+    sha256 = "1vavpvwnawnfhw8lcnba1zv3w6c5zc8nm1kvc37wlz2g9f5769hk";
+    name = "error_prone_annotations-2.3.4.pom";
+    mavenDir = "com/google/errorprone/error_prone_annotations/2.3.4";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar";
+    sha256 = "0b00bg90n9ni33x0mpyx4iffzrrcbyx58s0vw59nqq6fjzmddxxs";
+    name = "error_prone_annotations-2.3.4.jar";
+    mavenDir = "com/google/errorprone/error_prone_annotations/2.3.4";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.3.4/error_prone_parent-2.3.4.pom";
+    sha256 = "11i162j51sf2443ll9vs6j14lfcwknw59h6z1y7kklk0g91mnja0";
+    name = "error_prone_parent-2.3.4.pom";
+    mavenDir = "com/google/errorprone/error_prone_parent/2.3.4";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.pom";
+    sha256 = "0mghlfk0zwyv9qqd8x6p5yx4dspwnbypscrhhx2ywnqip8jaib2z";
+    name = "j2objc-annotations-1.3.pom";
+    mavenDir = "com/google/j2objc/j2objc-annotations/1.3";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar";
+    sha256 = "0ysaws2dawf41raccmprx8vilr5nrh6d5d70q0i63gb74b4k1br1";
+    name = "j2objc-annotations-1.3.jar";
+    mavenDir = "com/google/j2objc/j2objc-annotations/1.3";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.pom";
+    sha256 = "0fhfrzg1grl5gi95bbzfkzi17zmhfbgja5k4n5g1s8r7vx2bsqhm";
+    name = "proto-google-common-protos-1.12.0.pom";
+    mavenDir = "com/google/api/grpc/proto-google-common-protos/1.12.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.jar";
+    sha256 = "0221p2s3y40iccjyv9mb3nz82ixg78lx1g979j1gn01v89xcsq5x";
+    name = "proto-google-common-protos-1.12.0.jar";
+    mavenDir = "com/google/api/grpc/proto-google-common-protos/1.12.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/inject/guice/4.2.2/guice-4.2.2.pom";
+    sha256 = "0yb4p41i123ibkk0kn8dmmw6mr9i8yh5cm35i3z0pcspmpfw7wq6";
+    name = "guice-4.2.2.pom";
+    mavenDir = "com/google/inject/guice/4.2.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/inject/guice/4.2.2/guice-4.2.2.jar";
+    sha256 = "1g1g0iz9xmk60m5yfh0zkwad72k54s1680l45y3jgddqv4dzyn6j";
+    name = "guice-4.2.2.jar";
+    mavenDir = "com/google/inject/guice/4.2.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/inject/guice-parent/4.2.2/guice-parent-4.2.2.pom";
+    sha256 = "1mipq3qqks69jh9lhnfkvqj2mnspv6ki6bvqkqxw26my48yvlx2s";
+    name = "guice-parent-4.2.2.pom";
+    mavenDir = "com/google/inject/guice-parent/4.2.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/google/5/google-5.pom";
+    sha256 = "0a38gd0j67siikp3zabrdgfkk7afnzg30pz0yfkvqgyafdg397g0";
+    name = "google-5.pom";
+    mavenDir = "com/google/google/5";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.pom";
+    sha256 = "0y5fg9n3sj7x9c1ra8i8qkm8zpgy6i84l5bhbl77m8in7ism9fz4";
+    name = "annotations-4.1.1.4.pom";
+    mavenDir = "com/google/android/annotations/4.1.1.4";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar";
+    sha256 = "05dfcnjqcv9pzc715v1dfzw4412g9c1k77d0yrd637f0hhg4wwxs";
+    name = "annotations-4.1.1.4.jar";
+    mavenDir = "com/google/android/annotations/4.1.1.4";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.8.10/jackson-bom-2.8.10.pom";
+    sha256 = "08xk707gvhdhfgy5hzzfskhcl9gx75025w2f385cslcn80b053z9";
+    name = "jackson-bom-2.8.10.pom";
+    mavenDir = "com/fasterxml/jackson/jackson-bom/2.8.10";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-bom/2.12.1/jackson-bom-2.12.1.pom";
+    sha256 = "0f4aj3vfzb8f5vyhfahj79c77r5wky62820sdrnm3c0v4fj20fq8";
+    name = "jackson-bom-2.12.1.pom";
+    mavenDir = "com/fasterxml/jackson/jackson-bom/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.8/jackson-parent-2.8.pom";
+    sha256 = "0n4kppglr435ilgk3vxh3f58hsabw45nq8i8jz4c4a9s3969jl9v";
+    name = "jackson-parent-2.8.pom";
+    mavenDir = "com/fasterxml/jackson/jackson-parent/2.8";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-parent/2.12/jackson-parent-2.12.pom";
+    sha256 = "0nw7q0vl7ahkizjdb3r301cffmawscr6q6xz7lbrzq5dg4b1rak2";
+    name = "jackson-parent-2.12.pom";
+    mavenDir = "com/fasterxml/jackson/jackson-parent/2.12";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/jackson-base/2.12.1/jackson-base-2.12.1.pom";
+    sha256 = "1x8r4h9nq29fjks7zimidfh41mqd7j4b7nr1h187f6d3an3wga4k";
+    name = "jackson-base-2.12.1.pom";
+    mavenDir = "com/fasterxml/jackson/jackson-base/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.12.1/jackson-annotations-2.12.1.pom";
+    sha256 = "12qhlriwglga0xswrsv9n9nhmvpykp2v2ggirln77gi6zchmf31y";
+    name = "jackson-annotations-2.12.1.pom";
+    mavenDir = "com/fasterxml/jackson/core/jackson-annotations/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.12.1/jackson-annotations-2.12.1.jar";
+    sha256 = "0wr8b4vxhp06xamr60mwqfil8wx9kkr95whi9sl6l7n8lvgyyg10";
+    name = "jackson-annotations-2.12.1.jar";
+    mavenDir = "com/fasterxml/jackson/core/jackson-annotations/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.12.1/jackson-core-2.12.1.pom";
+    sha256 = "09j6w1kynccdp91rrw2db61z92vawg8l47jl7ykmrznw58mv82ad";
+    name = "jackson-core-2.12.1.pom";
+    mavenDir = "com/fasterxml/jackson/core/jackson-core/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-core/2.12.1/jackson-core-2.12.1.jar";
+    sha256 = "0my2y0cbpmh76937jyzb9z66jwvr51jsivlhsn3hpj70xav9r2fc";
+    name = "jackson-core-2.12.1.jar";
+    mavenDir = "com/fasterxml/jackson/core/jackson-core/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.12.1/jackson-databind-2.12.1.pom";
+    sha256 = "08x2dzzlszwqsrb3l6h6qlzr5w4wwbxn6c6n1k10h907sncn74lq";
+    name = "jackson-databind-2.12.1.pom";
+    mavenDir = "com/fasterxml/jackson/core/jackson-databind/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.12.1/jackson-databind-2.12.1.jar";
+    sha256 = "183ajfprfm817h36mxhaaihzjg9j8plsylbx8jc9rmfyxcl3rjpj";
+    name = "jackson-databind-2.12.1.jar";
+    mavenDir = "com/fasterxml/jackson/core/jackson-databind/2.12.1";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/27/oss-parent-27.pom";
+    sha256 = "1sxy16jh605l7hqlvqbch7aqyv3jhs5lcmlp4jqmg032zn4g7f5r";
+    name = "oss-parent-27.pom";
+    mavenDir = "com/fasterxml/oss-parent/27";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/fasterxml/oss-parent/41/oss-parent-41.pom";
+    sha256 = "12jxjjyzpjls8qyj3s5bkhs3z0ckxl4fzg10jdvca2s0vnj0yrdg";
+    name = "oss-parent-41.pom";
+    mavenDir = "com/fasterxml/oss-parent/41";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/googlecode/jcsv/jcsv/1.4.0/jcsv-1.4.0.pom";
+    sha256 = "1ml9h9sjjfk5vag7axbqi6w8r2lcjimjimcnn1fvfk6dazxg722p";
+    name = "jcsv-1.4.0.pom";
+    mavenDir = "com/googlecode/jcsv/jcsv/1.4.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/googlecode/jcsv/jcsv/1.4.0/jcsv-1.4.0.jar";
+    sha256 = "18hlhxxia3jrxmh0cybh9yilb0h37da89hjwcg1d5j4hbrqpvjkk";
+    name = "jcsv-1.4.0.jar";
+    mavenDir = "com/googlecode/jcsv/jcsv/1.4.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6.pom";
+    sha256 = "0vw9qd1067as994z1p322ay1yxxidhqa7842d281gm7pfcwgsnfd";
+    name = "jfoenix-9.0.6.pom";
+    mavenDir = "com/jfoenix/jfoenix/9.0.6";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6.jar";
+    sha256 = "1rlggy13ykcnn0b2d6bjm27s9d8p6yws34dksp4knz760mxf6fa7";
+    name = "jfoenix-9.0.6.jar";
+    mavenDir = "com/jfoenix/jfoenix/9.0.6";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/nativelibs4java/bridj/0.7.0/bridj-0.7.0.pom";
+    sha256 = "01g4np638d6bgf6nvcpbjq2qgkzg7j36xflxs3yilxraaswmd1vl";
+    name = "bridj-0.7.0.pom";
+    mavenDir = "com/nativelibs4java/bridj/0.7.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/nativelibs4java/bridj/0.7.0/bridj-0.7.0.jar";
+    sha256 = "1ksrsrh5hfvfwnry2dwyirg1yax6zfp3vsvdwlbbrripcsdws6qh";
+    name = "bridj-0.7.0.jar";
+    mavenDir = "com/nativelibs4java/bridj/0.7.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/com/nativelibs4java/nativelibs4java-parent/1.9/nativelibs4java-parent-1.9.pom";
+    sha256 = "1jk2wnr2xq2dkn7dz5f5hclp9mwd8b6gzraqblhqhjwir9vjl4qj";
+    name = "nativelibs4java-parent-1.9.pom";
+    mavenDir = "com/nativelibs4java/nativelibs4java-parent/1.9";
   }
   { url = "https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.pom";
     sha256 = "04g78wr269n6cz2l13a3h9lrhdfllkw5cdklkhl6dd9h3j4vhxpd";
@@ -1053,16 +1053,6 @@ let
     name = "commons-logging-1.2.jar";
     mavenDir = "commons-logging/commons-logging/1.2";
   }
-  { url = "https://repo.maven.apache.org/maven2/de/jensd/fontawesomefx-commons/9.1.2/fontawesomefx-commons-9.1.2.pom";
-    sha256 = "030m94616dlyqsf8qmp9sfsx4ag2smz0kdm8pl19nd7x1brycjxb";
-    name = "fontawesomefx-commons-9.1.2.pom";
-    mavenDir = "de/jensd/fontawesomefx-commons/9.1.2";
-  }
-  { url = "https://repo.maven.apache.org/maven2/de/jensd/fontawesomefx-commons/9.1.2/fontawesomefx-commons-9.1.2.jar";
-    sha256 = "0j91c4lrcw5mcjh1f56c2qarzsvffrbnym18z7dj5f7c6lrvnfam";
-    name = "fontawesomefx-commons-9.1.2.jar";
-    mavenDir = "de/jensd/fontawesomefx-commons/9.1.2";
-  }
   { url = "https://repo.maven.apache.org/maven2/de/jensd/fontawesomefx-materialdesignfont/2.0.26-9.1.2/fontawesomefx-materialdesignfont-2.0.26-9.1.2.pom";
     sha256 = "08d0k6micldnxgcxn59rha2y70casfj83qawvczwcmk55jrspc0v";
     name = "fontawesomefx-materialdesignfont-2.0.26-9.1.2.pom";
@@ -1082,6 +1072,16 @@ let
     sha256 = "0yw8jvdf6hj3xdqq67m6pjfr9q31n66pqxhiz7q5qvqa3acwrfkk";
     name = "fontawesomefx-8.0.0.jar";
     mavenDir = "de/jensd/fontawesomefx/8.0.0";
+  }
+  { url = "https://repo.maven.apache.org/maven2/de/jensd/fontawesomefx-commons/9.1.2/fontawesomefx-commons-9.1.2.pom";
+    sha256 = "030m94616dlyqsf8qmp9sfsx4ag2smz0kdm8pl19nd7x1brycjxb";
+    name = "fontawesomefx-commons-9.1.2.pom";
+    mavenDir = "de/jensd/fontawesomefx-commons/9.1.2";
+  }
+  { url = "https://repo.maven.apache.org/maven2/de/jensd/fontawesomefx-commons/9.1.2/fontawesomefx-commons-9.1.2.jar";
+    sha256 = "0j91c4lrcw5mcjh1f56c2qarzsvffrbnym18z7dj5f7c6lrvnfam";
+    name = "fontawesomefx-commons-9.1.2.jar";
+    mavenDir = "de/jensd/fontawesomefx-commons/9.1.2";
   }
   { url = "https://repo.maven.apache.org/maven2/net/glxn/qrgen/1.3/qrgen-1.3.pom";
     sha256 = "0y9825lhlfclw96g4m1kbq02djarxbnx72sd18p4xs0dv7nb16gz";
