@@ -57,11 +57,11 @@ let
     outputHashMode = "recursive";
 
     # REF1
-    outputHash = "061dkg4wk0xx1jil0cfcnrfc9sdb1ralqxj42prjv5xp5g0ch0r6";
+    outputHash = "0brzp9rywc1lig4sgiz0svbgz25id8az4waqynwnwp4j0xd4rv51";
   };
 
-  header = ./bisq-gen-deps-header.nix.txt;
-  footer = ./bisq-gen-deps-footer.nix.txt;
+  header = ./header.nix.txt;
+  footer = ./footer.nix.txt;
 
   gen-deps-script = pkgs.writeScript "${pname}-gen-deps-script" ''
     excludes="gradle-witness"
