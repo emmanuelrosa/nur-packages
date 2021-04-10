@@ -60,11 +60,8 @@ let
     outputHash = "06sq1a6jrsxfpqcwslwmqgq76r40jjn8c2533livvvi5fcvpmwbf";
   };
 
-  header = ./header.nix.txt;
-  footer = ./footer.nix.txt;
-
   gen-deps-script = pkgs.writeScript "${pname}-gen-deps-script" ''
-    cat ${header}
+    echo "["
     for path in $(find -L ${prebuild} -type f | sort | grep -v gradle-witness); do
       name=$(basename $path)
       sha256=""
@@ -95,7 +92,7 @@ let
       echo "  }"
     done
   
-    cat ${footer}
+    echo "]"
   '';
 
 in pkgs.stdenv.mkDerivation {

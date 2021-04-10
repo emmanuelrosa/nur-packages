@@ -1,4 +1,4 @@
-{ stdenv, lib, callPackage, makeWrapper, fetchgit, unzip, zip, git, git-lfs
+{ stdenv, lib, callPackage, makeWrapper, fetchgit, fetchurl, rsync, unzip, zip, git, git-lfs
 , openjdk11
 , perl
 , gradle
@@ -12,8 +12,39 @@
 }:
 let
   bisq-launcher = callPackage ./launcher.nix {};
-  deps = callPackage ./deps.nix {};
   common = callPackage ./common.nix {};
+
+  deps = let
+    mkDepDerivation = { name, url, sha256, mavenDir }: 
+      stdenv.mkDerivation {
+        name = "bisq-dep-${name}";
+
+        src = fetchurl { inherit sha256 url; };
+
+        unpackCmd = ''
+          mkdir output 
+          cp $curSrc "output/${name}"
+        '';
+
+        installPhase = ''
+          mkdir -p "$out/${mavenDir}"
+          cp -r . "$out/${mavenDir}/"
+        '';
+      };
+
+    d = map mkDepDerivation (import ./deps.nix); 
+    in stdenv.mkDerivation {
+      name = "bisq-deps";
+      dontUnpack = true;
+
+      installPhase = ''
+        mkdir $out
+
+        for p in ${toString d}; do
+          ${rsync}/bin/rsync -a $p/ $out/
+        done
+      '';
+    };
 in stdenv.mkDerivation rec {
   inherit (common) pname version src jdk grpc gradle;
 

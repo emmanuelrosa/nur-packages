@@ -1,23 +1,4 @@
-{ stdenv, fetchurl, rsync }:
-let
-  package = { name, url, sha256, mavenDir }: 
-    stdenv.mkDerivation {
-      name = "bisq-dep-${name}";
-
-      src = fetchurl { inherit sha256 url; };
-
-      unpackCmd = ''
-        mkdir output 
-        cp $curSrc "output/${name}"
-      '';
-
-      installPhase = ''
-        mkdir -p "$out/${mavenDir}"
-        cp -r . "$out/${mavenDir}/"
-      '';
-    };
-
-  deps = map package [
+[
   { url = "https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.jar";
     sha256 = "023a6xwv1kd9c4dq9jrsbvvj6398hgbr302w7h8kzkgd1xkyrp8a";
     name = "aopalliance-1.0.jar";
@@ -1193,18 +1174,4 @@ let
     name = "xz-1.6.pom";
     mavenDir = "org/tukaani/xz/1.6";
   }
-  ];
-in
-  stdenv.mkDerivation {
-    name = "bisq-deps";
-    dontUnpack = true;
-
-    installPhase = ''
-      mkdir $out
-
-      for p in ${toString deps}; do
-        ${rsync}/bin/rsync -a $p/ $out/
-      done
-    '';
-  }
-
+]
