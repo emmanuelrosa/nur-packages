@@ -7,6 +7,9 @@ let
   bisq-launcher = callPackage ./launcher.nix {};
   common = callPackage ./common.nix {};
 
+  # This takes all of the Java dependencies from deps.nix,
+  # and creates a single mvn directory tree so that gradle
+  # can find the project's dependencies.
   deps = let
     mkDepDerivation = { name, url, sha256, mavenDir }: 
       stdenv.mkDerivation {
