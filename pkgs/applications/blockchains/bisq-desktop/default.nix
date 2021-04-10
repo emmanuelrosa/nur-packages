@@ -1,12 +1,5 @@
-{ stdenv, lib, callPackage, makeWrapper, fetchgit, fetchurl, rsync, unzip, zip, git, git-lfs
-, openjdk11
-, perl
-, gradle
-, gradleGen
+{ stdenv, lib, callPackage, makeWrapper, fetchurl, rsync 
 , protobuf3_10
-, gnome2
-, ps
-, tor
 , makeDesktopItem
 , imagemagick
 }:
@@ -49,7 +42,7 @@ in stdenv.mkDerivation rec {
   inherit (common) pname version src jdk grpc gradle;
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ gradle ps tor ];
+  buildInputs = [ gradle ];
 
   desktopItem = makeDesktopItem {
     name = "Bisq";
