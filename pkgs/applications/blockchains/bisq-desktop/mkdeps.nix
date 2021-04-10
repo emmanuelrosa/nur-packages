@@ -57,34 +57,16 @@ let
     outputHashMode = "recursive";
 
     # REF1
-    outputHash = "0brzp9rywc1lig4sgiz0svbgz25id8az4waqynwnwp4j0xd4rv51";
+    outputHash = "06sq1a6jrsxfpqcwslwmqgq76r40jjn8c2533livvvi5fcvpmwbf";
   };
 
   header = ./header.nix.txt;
   footer = ./footer.nix.txt;
 
   gen-deps-script = pkgs.writeScript "${pname}-gen-deps-script" ''
-    excludes="gradle-witness"
     cat ${header}
-    for path in $(find -L ${prebuild} -type f); do
+    for path in $(find -L ${prebuild} -type f | sort | grep -v gradle-witness); do
       name=$(basename $path)
-      skip=0
-  
-      for n in $excludes; do
-        if [ "$name" == "$n.pom" ]
-        then
-          skip=1
-        elif [ "$name" == "$n.jar" ]
-        then
-          skip=1
-        fi
-      done
-  
-      if [ "$skip" == "1" ] 
-      then 
-        continue 
-      fi
-
       sha256=""
       upstreamPath=$(realpath --relative-to ${prebuild} $path)
       upstreamDir=$(dirname $upstreamPath)
