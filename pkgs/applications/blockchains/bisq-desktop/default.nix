@@ -3,59 +3,29 @@
 , callPackage
 , makeWrapper
 , fetchurl
-, protobuf3_10
 , makeDesktopItem
 , copyDesktopItems
 , imagemagick
+, openjdk11
+, dpkg
 }:
 let
   bisq-launcher = callPackage ./launcher.nix { };
-  common = callPackage ./common.nix { };
-
-  # This takes all of the Java dependencies from deps.nix,
-  # and creates a single mvn directory tree so that gradle
-  # can find the project's dependencies.
-  deps =
-    let
-      mkDepDerivation = { name, url, sha256, mavenDir }:
-        stdenv.mkDerivation {
-          name = "bisq-dep-${name}";
-
-          src = fetchurl { inherit sha256 url; };
-
-          unpackCmd = ''
-            mkdir output
-            cp $curSrc "output/${name}"
-          '';
-
-          installPhase = ''
-            mkdir -p "$out/${mavenDir}"
-            cp -r . "$out/${mavenDir}/"
-          '';
-        };
-
-      d = map mkDepDerivation (import ./deps.nix);
-    in
-    stdenv.mkDerivation {
-      name = "bisq-deps";
-      dontUnpack = true;
-
-      buildPhase = ''
-        for p in ${toString d}; do
-          cp --no-preserve=mode -r $p/* .
-        done
-      '';
-
-      installPhase = ''
-        mkdir $out
-        cp -r . $out/
-      '';
-    };
 in
 stdenv.mkDerivation rec {
-  inherit (common) pname version src jdk grpc gradle;
+  version = "1.6.2";
+  pname = "bisq-desktop";
+  nativeBuildInputs = [ makeWrapper copyDesktopItems dpkg ];
 
-  nativeBuildInputs = [ makeWrapper gradle copyDesktopItems ];
+  src = fetchurl {
+    url = "https://github.com/bisq-network/bisq/releases/download/v${version}/Bisq-64bit-${version}.deb";
+    sha256 = "1mcisy9in5p4lxak67lfbma2gf4v2cbghggcx538vg1gw982khbi";
+  };
+
+  icon = fetchurl {
+    url = "https://github.com/bisq-network/bisq/blob/v${version}/desktop/package/linux/icon.png";
+    sha256 = "1g32mj2h2wfqcqylrn30a8050bcp0ax7g5p3j67s611vr0h8cjkp";
+  };
 
   desktopItems = [
     (makeDesktopItem {
@@ -68,30 +38,17 @@ stdenv.mkDerivation rec {
     })
   ];
 
-  buildPhase = ''
-    export GRADLE_USER_HOME=$(mktemp -d)
-    (
-      mkdir lib
-      substituteInPlace build.gradle \
-        --replace 'mavenCentral()' 'mavenLocal(); maven { url uri("${deps}") }' \
-        --replace 'jcenter()' 'mavenLocal(); maven { url uri("${deps}") }' \
-        --replace 'artifact = "com.google.protobuf:protoc:''${protocVersion}"' "path = '${protobuf3_10}/bin/protoc'" \
-        --replace 'artifact = "io.grpc:protoc-gen-grpc-java:''${grpcVersion}"' "path = '${grpc}/bin/protoc-gen-rpc-java'"
-      sed -i 's/^.*com.github.JesusMcCloud.tor-binary:tor-binary-linux64.*$//g' gradle/witness/gradle-witness.gradle
-      gradle  --offline --no-daemon desktop:build  --exclude-task desktop:test
-    )
+  unpackPhase = ''
+    dpkg -x $src .
   '';
 
   installPhase = ''
     mkdir -p $out/lib $out/bin
-    cp -r lib/* $out/lib
+    cp opt/Bisq/app/desktop-${version}-all.jar $out/lib
 
-    for jar in $out/lib/*.jar; do
-      classpath="$classpath:$jar"
-    done
+    makeWrapper ${openjdk11}/bin/java $out/bin/bisq-desktop-wrapped \
+      --add-flags "-jar $out/lib/desktop-${version}-all.jar bisq.desktop.app.BisqAppMain"
 
-    makeWrapper ${jdk}/bin/java $out/bin/bisq-desktop-wrapped \
-      --add-flags "-classpath $classpath bisq.desktop.app.BisqAppMain"
     makeWrapper ${bisq-launcher} $out/bin/bisq-desktop \
       --prefix PATH : $out/bin
 
@@ -99,7 +56,7 @@ stdenv.mkDerivation rec {
 
     for n in 16 24 32 48 64 96 128 256; do
       size=$n"x"$n
-      ${imagemagick}/bin/convert $src/desktop/package/linux/icon.png -resize $size bisq.png
+      ${imagemagick}/bin/convert $icon -resize $size bisq.png
       install -Dm644 -t $out/share/icons/hicolor/$size/apps bisq.png
     done;
   '';
