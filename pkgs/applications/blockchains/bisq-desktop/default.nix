@@ -46,17 +46,17 @@ let
   '';
 in
 stdenv.mkDerivation rec {
-  version = "1.6.2";
+  version = "1.6.3";
   pname = "bisq-desktop";
   nativeBuildInputs = [ makeWrapper copyDesktopItems dpkg ];
 
   src = fetchurl {
     url = "https://github.com/bisq-network/bisq/releases/download/v${version}/Bisq-64bit-${version}.deb";
-    sha256 = "1mcisy9in5p4lxak67lfbma2gf4v2cbghggcx538vg1gw982khbi";
+    sha256 = "0ijpqgix1m6pni71rrp0j86ny0pfllb4pcm9ga41vqsijcgmbr9y";
   };
 
   icon = fetchurl {
-    url = "https://github.com/bisq-network/bisq/blob/v${version}/desktop/package/linux/icon.png";
+    url = "https://github.com/bisq-network/bisq/raw/v${version}/desktop/package/linux/icon.png";
     sha256 = "1g32mj2h2wfqcqylrn30a8050bcp0ax7g5p3j67s611vr0h8cjkp";
   };
 
@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/lib $out/bin
-    cp opt/Bisq/app/desktop-${version}-all.jar $out/lib
+    cp opt/bisq/lib/app/desktop-${version}-all.jar $out/lib
 
     makeWrapper ${openjdk11}/bin/java $out/bin/bisq-desktop-wrapped \
       --add-flags "-jar $out/lib/desktop-${version}-all.jar bisq.desktop.app.BisqAppMain"
