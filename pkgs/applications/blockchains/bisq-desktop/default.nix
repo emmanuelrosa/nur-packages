@@ -60,7 +60,7 @@ stdenv.mkDerivation rec {
       name = "Bisq";
       exec = "bisq-desktop";
       icon = "bisq";
-      desktopName = "Bisq";
+      desktopName = "Bisq ${version}";
       genericName = "Decentralized bitcoin exchange";
       categories = "Network;Utility;";
     })
