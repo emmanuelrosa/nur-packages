@@ -55,6 +55,13 @@ in {
         example = "us-free-01.protonvpn.com";
         description = "The ProtonVPN server to use.";
       };
+
+      protocol = mkOption {
+        type = types.enum [ "udp" "tcp" ];
+        default = "udp";
+        example = "tcp";
+        description = "The network protocol to use for the VPN connection. See `https://protonvpn.com/support/udp-tcp/`";
+      };
     };
   };
 
@@ -75,7 +82,7 @@ in {
       in ''
         client
         dev tun
-        proto udp
+        proto ${cfg.protocol};
         
         remote ${cfg.server} 80
         remote ${cfg.server} 443
