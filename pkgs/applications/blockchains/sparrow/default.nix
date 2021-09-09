@@ -32,6 +32,18 @@ stdenv.mkDerivation rec {
     })
   ];
 
+  buildPhase = ''
+    # Replace the Java runtime with the one from Nixpkgs,
+    # but with some files from the sparrow tarball
+    mkdir myruntime
+    cp -r ${openjdk16}/lib/openjdk/* myruntime/
+    chmod u+w myruntime/bin
+    chmod u+w myruntime/lib
+    rm myruntime/lib/modules
+    cp lib/runtime/bin/sparrow myruntime/bin/
+    cp lib/runtime/lib/modules myruntime/lib/
+  '';
+
   installPhase = ''
     runHook preInstall
 
@@ -39,17 +51,7 @@ stdenv.mkDerivation rec {
     cp -a bin $out/opt/${pname}
     cp -a lib/app $out/opt/${pname}/lib
     ln -s $out/opt/${pname}/bin/Sparrow $out/bin/${pname}
-
-    # Replace the Java runtime with the one from Nixpkgs,
-    # but with some files from the sparrow tarball
-    runtime=$(mktemp -d)
-    cp -r ${openjdk16}/lib/openjdk/* $runtime/
-    chmod u+w $runtime/bin
-    chmod u+w $runtime/lib
-    rm $runtime/lib/modules
-    cp lib/runtime/bin/sparrow $runtime/bin/
-    cp lib/runtime/lib/modules $runtime/lib/
-    cp -a $runtime/* $out/opt/${pname}/lib/runtime/
+    cp -a myruntime/* $out/opt/${pname}/lib/runtime/
 
     patchelf --interpreter $(echo ${stdenv.glibc.out}/lib/ld-linux*) $out/opt/${pname}/bin/Sparrow
 
