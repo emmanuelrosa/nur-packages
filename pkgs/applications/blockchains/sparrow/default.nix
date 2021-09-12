@@ -24,9 +24,8 @@
 let launcher = writeScript "sparrow" ''
   #! ${bash}/bin/bash
 
-  modulePath=$(dirname $(dirname $0))/lib
   params=(
-    --module-path $modulePath
+    --module-path @out@/lib
     --add-opens javafx.graphics/com.sun.javafx.css=org.controlsfx.controls
     --add-opens javafx.graphics/javafx.scene=org.controlsfx.controls
     --add-opens javafx.controls/com.sun.javafx.scene.control.behavior=org.controlsfx.controls
@@ -109,7 +108,8 @@ in stdenv.mkDerivation rec {
 
     mkdir -p $out/bin $out/lib
     cp -r sparrow-modules/* $out/lib/
-    install -Dmu+x ${launcher} $out/bin/sparrow
+    install -D -m 777 ${launcher} $out/bin/sparrow
+    substituteAllInPlace $out/bin/sparrow
 
     for n in 16 24 32 48 64 96 128 256; do
       size=$n"x"$n
