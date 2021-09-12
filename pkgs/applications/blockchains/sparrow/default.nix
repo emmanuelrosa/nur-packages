@@ -71,11 +71,26 @@ in stdenv.mkDerivation rec {
   ];
 
   buildPhase = ''
-    # Extract Sparrow's JIMAGE and replace the OpenJDK modules.
-    mkdir mymodules
-    pushd mymodules
-    ${openjdk16}/bin/jimage extract ../lib/runtime/lib/modules
+    # Extract the JDK's JIMAGE and generate a list of them.
+    mkdir jdk-modules
+    pushd jdk-modules
     ${openjdk16}/bin/jimage extract ${openjdk16}/lib/openjdk/lib/modules
+    ls | xargs -d " " -- echo > ../jdk-modules.txt
+    popd
+
+    # Extract Sparrow's JIMAGE and generate a list of them.
+    mkdir sparrow-modules
+    pushd sparrow-modules
+    ${openjdk16}/bin/jimage extract ../lib/runtime/lib/modules
+    ls | xargs -d " " -- echo > ../sparrow-modules.txt
+    popd
+
+    # Generate a list of modules which exist in both the JDK and Sparrow.
+    cat sparrow-modules.txt jdk-modules.txt | sort | uniq -d | tr "\n" " " > modules-to-copy.txt
+
+    # Copy the existing JDK modules to the Sparrow modules
+    pushd jdk-modules
+    cp -a $(cat ../modules-to-copy.txt) ../sparrow-modules/ 
     popd
   '';
 
@@ -83,7 +98,7 @@ in stdenv.mkDerivation rec {
     runHook preInstall
 
     mkdir -p $out/bin $out/lib
-    cp -r mymodules/* $out/lib/
+    cp -r sparrow-modules/* $out/lib/
     install -Dmu+x ${launcher} $out/bin/sparrow
 
     for n in 16 24 32 48 64 96 128 256; do
