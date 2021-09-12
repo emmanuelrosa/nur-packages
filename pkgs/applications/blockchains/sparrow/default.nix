@@ -103,6 +103,11 @@ in stdenv.mkDerivation rec {
     popd
   '';
 
+  postBuild = ''
+    # Set execute bit for executables within the modules.
+    chmod ugo+x sparrow-modules/com.sparrowwallet.sparrow/native/linux/x64/hwi
+  '';
+
   installPhase = ''
     runHook preInstall
 
