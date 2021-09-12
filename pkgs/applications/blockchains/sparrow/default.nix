@@ -19,6 +19,9 @@
 , cairo
 , glib
 , freetype
+, tor
+, gnutar
+, zip
 }:
 
 let launcher = writeScript "sparrow" ''
@@ -56,6 +59,13 @@ let launcher = writeScript "sparrow" ''
 
   XDG_DATA_DIRS=${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS /nix/store/anwva8fk7zf2ykjkzggjkg38wd7sxx39-openjdk-16+36/bin/java ''${params[@]} $@
 '';
+
+  torWrapper = writeScript "tor-wrapper" ''
+    #! ${bash}/bin/bash
+
+    exec ${tor}/bin/tor "$@"
+  '';
+
 in stdenv.mkDerivation rec {
   pname = "sparrow";
   version = "1.4.3";
@@ -106,6 +116,12 @@ in stdenv.mkDerivation rec {
   postBuild = ''
     # Set execute bit for executables within the modules.
     chmod ugo+x sparrow-modules/com.sparrowwallet.sparrow/native/linux/x64/hwi
+
+    # Replace the embedded Tor binary (which is in a Tar archive)
+    # with one from Nixpkgs.
+    cp ${torWrapper} ./tor
+    tar -cJf tor.tar.xz tor
+    cp tor.tar.xz sparrow-modules/netlayer.jpms/native/linux/x64/tor.tar.xz 
   '';
 
   installPhase = ''
