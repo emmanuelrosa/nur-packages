@@ -4,12 +4,21 @@
 , fetchurl
 , makeDesktopItem
 , copyDesktopItems
+, autoPatchelfHook
 , openjdk16
 , gtk3
 , gsettings-desktop-schemas
 , writeScript
 , bash
 , imagemagick
+, gnugrep
+, libv4l
+, gmp
+, xorg
+, gtk2
+, cairo
+, glib
+, freetype
 }:
 
 let launcher = writeScript "sparrow" ''
@@ -57,7 +66,7 @@ in stdenv.mkDerivation rec {
     sha256 = "77818bad5f7183696a4be01db1855971b43379fd049e1e3f76ee5919fcddc655";
   };
 
-  nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick ];
+  nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick gnugrep autoPatchelfHook libv4l stdenv.cc.cc.lib gmp xorg.libX11 xorg.libXtst gtk2 gtk3 cairo glib freetype ];
 
   desktopItems = [
     (makeDesktopItem {
@@ -83,6 +92,7 @@ in stdenv.mkDerivation rec {
     pushd sparrow-modules
     ${openjdk16}/bin/jimage extract ../lib/runtime/lib/modules
     ls | xargs -d " " -- echo > ../sparrow-modules.txt
+    find . | grep "\.so$" | xargs -- chmod ugo+x
     popd
 
     # Generate a list of modules which exist in both the JDK and Sparrow.
