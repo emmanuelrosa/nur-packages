@@ -99,13 +99,48 @@ let
   sparrow-modules = stdenv.mkDerivation {
     pname = "sparrow-modules";
     inherit version src;
-    nativeBuildInputs = [ openjdk16 ];
+    nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick gnugrep openjdk16 autoPatchelfHook libv4l stdenv.cc.cc.lib gmp xorg.libX11 xorg.libXtst gtk2 gtk3 cairo glib freetype ];
 
     buildPhase = ''
       # Extract Sparrow's JIMAGE and generate a list of them.
       mkdir modules
       pushd modules
       jimage extract ../lib/runtime/lib/modules
+
+      # Delete JDK modules
+      cat ${jdk-modules}/manifest.txt | xargs -I {} -- rm -fR {}
+
+      # Delete unneeded native libs.
+
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/freebsd-x86-64
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/freebsd-x86
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-aarch64
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-arm
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-armel
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-mips64el
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-ppc
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-ppc64le
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-s390x
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/linux-x86
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/openbsd-x86-64
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/openbsd-x86
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/sunos-sparc
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/sunos-sparcv9
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/sunos-x86-64
+      rm -fR com.sparrowwallet.merged.module/com/sun/jna/sunos-x86
+      rm -fR com.github.sarxos.webcam.capture/com/github/sarxos/webcam/ds/buildin/lib/linux_armel
+      rm -fR com.github.sarxos.webcam.capture/com/github/sarxos/webcam/ds/buildin/lib/linux_armhf
+      rm -fR com.github.sarxos.webcam.capture/com/github/sarxos/webcam/ds/buildin/lib/linux_x86
+      rm -fR com.nativelibs4java.bridj/org/bridj/lib/linux_arm32_armel
+      rm -fR com.nativelibs4java.bridj/org/bridj/lib/linux_armel
+      rm -fR com.nativelibs4java.bridj/org/bridj/lib/linux_armhf
+      rm -fR com.nativelibs4java.bridj/org/bridj/lib/linux_x86
+      rm -fR com.nativelibs4java.bridj/org/bridj/lib/sunos_x64
+      rm -fR com.nativelibs4java.bridj/org/bridj/lib/sunos_x86
+      rm -fR com.sparrowwallet.merged.module/linux-aarch64
+      rm -fR com.sparrowwallet.merged.module/linux-arm
+      rm -fR com.sparrowwallet.merged.module/linux-x86
+
       ls | xargs -d " " -- echo > ../manifest.txt
       find . | grep "\.so$" | xargs -- chmod ugo+x
       popd
@@ -130,7 +165,7 @@ let
   };
 in stdenv.mkDerivation rec {
   inherit pname version src;
-  nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick gnugrep autoPatchelfHook libv4l stdenv.cc.cc.lib gmp xorg.libX11 xorg.libXtst gtk2 gtk3 cairo glib freetype ];
+  nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick ];
 
   desktopItems = [
     (makeDesktopItem {
