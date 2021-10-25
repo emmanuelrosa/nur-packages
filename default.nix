@@ -31,4 +31,5 @@
   nvidia-offload = pkgs.callPackage ./pkgs/os-specific/linux/nvidia-offload { };
   bisq-desktop = pkgs.callPackage ./pkgs/applications/blockchains/bisq-desktop { };
   sparrow = pkgs.callPackage ./pkgs/applications/blockchains/sparrow { };
+  muun-recovery-tool = pkgs.callPackage ./pkgs/applications/blockchains/muun-recovery-tool { };
 }
