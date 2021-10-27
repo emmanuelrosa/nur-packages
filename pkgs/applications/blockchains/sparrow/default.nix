@@ -5,7 +5,7 @@
 , makeDesktopItem
 , copyDesktopItems
 , autoPatchelfHook
-, openjdk16
+, openjdk17
 , gtk3
 , gsettings-desktop-schemas
 , writeScript
@@ -66,7 +66,7 @@ let
       -m com.sparrowwallet.sparrow
     )
 
-    XDG_DATA_DIRS=${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS ${openjdk16}/bin/java ''${params[@]} $@
+    XDG_DATA_DIRS=${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS ${openjdk17}/bin/java ''${params[@]} $@
 '';
 
   torWrapper = writeScript "tor-wrapper" ''
@@ -77,14 +77,14 @@ let
 
   jdk-modules = stdenv.mkDerivation {
     name = "jdk-modules";
-    nativeBuildInputs = [ openjdk16 ];
+    nativeBuildInputs = [ openjdk17 ];
     dontUnpack = true;
 
     buildPhase = ''
       # Extract the JDK's JIMAGE and generate a list of modules.
       mkdir modules
       pushd modules
-      jimage extract ${openjdk16}/lib/openjdk/lib/modules
+      jimage extract ${openjdk17}/lib/openjdk/lib/modules
       ls | xargs -d " " -- echo > ../manifest.txt
       popd
     '';
@@ -99,7 +99,7 @@ let
   sparrow-modules = stdenv.mkDerivation {
     pname = "sparrow-modules";
     inherit version src;
-    nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick gnugrep openjdk16 autoPatchelfHook libv4l stdenv.cc.cc.lib gmp xorg.libX11 xorg.libXtst gtk2 gtk3 cairo glib freetype ];
+    nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick gnugrep openjdk17 autoPatchelfHook libv4l stdenv.cc.cc.lib gmp xorg.libX11 xorg.libXtst gtk2 gtk3 cairo glib freetype ];
 
     buildPhase = ''
       # Extract Sparrow's JIMAGE and generate a list of them.
