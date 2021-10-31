@@ -96,10 +96,24 @@ let
     '';
   };
 
+  sparrow-icons = stdenv.mkDerivation {
+    pname = "sparrow-icons";
+    inherit version src;
+    nativeBuildInputs = [ imagemagick ];
+
+    installPhase = ''
+      for n in 16 24 32 48 64 96 128 256; do
+        size=$n"x"$n
+        mkdir -p $out/hicolor/$size/apps
+        convert lib/Sparrow.png -resize $size $out/hicolor/$size/apps/sparrow.png
+      done;
+    '';
+  };
+
   sparrow-modules = stdenv.mkDerivation {
     pname = "sparrow-modules";
     inherit version src;
-    nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick gnugrep openjdk17 autoPatchelfHook libv4l stdenv.cc.cc.lib gmp xorg.libX11 xorg.libXtst gtk2 gtk3 cairo glib freetype ];
+    nativeBuildInputs = [ makeWrapper gnugrep openjdk17 autoPatchelfHook libv4l stdenv.cc.cc.lib gmp freetype ];
 
     buildPhase = ''
       # Extract Sparrow's JIMAGE and generate a list of them.
@@ -165,7 +179,7 @@ let
   };
 in stdenv.mkDerivation rec {
   inherit pname version src;
-  nativeBuildInputs = [ makeWrapper copyDesktopItems imagemagick ];
+  nativeBuildInputs = [ makeWrapper copyDesktopItems ];
 
   desktopItems = [
     (makeDesktopItem {
@@ -187,12 +201,8 @@ in stdenv.mkDerivation rec {
     substituteAllInPlace $out/bin/sparrow
     substituteInPlace $out/bin/sparrow --subst-var-by jdkModules ${jdk-modules}
 
-    for n in 16 24 32 48 64 96 128 256; do
-      size=$n"x"$n
-      convert lib/Sparrow.png -resize $size sparrow.png
-      install -Dm644 -t $out/share/icons/hicolor/$size/apps ${pname}.png
-    done;
-
+    mkdir -p $out/share/icons
+    ln -s ${sparrow-icons}/hicolor $out/share/icons
     runHook postInstall
   '';
 
