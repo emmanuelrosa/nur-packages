@@ -32,4 +32,5 @@
   bisq-desktop = pkgs.callPackage ./pkgs/applications/blockchains/bisq-desktop { };
   sparrow = pkgs.callPackage ./pkgs/applications/blockchains/sparrow { };
   muun-recovery-tool = pkgs.callPackage ./pkgs/applications/blockchains/muun-recovery-tool { };
+  tastyworks = pkgs.callPackage ./pkgs/applications/misc/tastyworks { };
 }
