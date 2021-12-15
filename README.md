@@ -1,5 +1,7 @@
 # Emmanuel's nur-packages
 
+NOTICE: This repository has been replaced by https://github.com/emmanuelrosa/erosanix. erosanix is a Nix flake which contains the majority of this NUR.
+
 **My personal Nix packages, now available on  [NUR](https://github.com/nix-community/NUR)**
 
 ## Packages
