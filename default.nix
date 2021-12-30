@@ -40,7 +40,7 @@ rec {
   sparrow = deprecate (pkgs.callPackage ./pkgs/applications/blockchains/sparrow { });
   muun-recovery-tool = deprecate (pkgs.callPackage ./pkgs/applications/blockchains/muun-recovery-tool { });
   tastyworks = deprecate (pkgs.callPackage ./pkgs/applications/misc/tastyworks { });
-  sierrachart = goneForGood (pkgs.callPackage ./pkgs/applications/trading/sierrachart { wrapWine = lib.wrapWine;
+  sierrachart = deprecate (pkgs.callPackage ./pkgs/applications/trading/sierrachart { wrapWine = lib.wrapWine;
     wine = pkgs.wineWowPackages.full;
   });
 }
