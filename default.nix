@@ -6,41 +6,15 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> { } }:
-
-rec {
-  pathToName = pkg: 
-    let output = pkgs.runCommandLocal "path-to-package-name" { p = pkg; } ''basename $p | cut -d "-" -f 2- | tr -d "\n" > $out'';
-    in builtins.readFile output;
-
-  deprecate = pkg: pkgs.lib.trivial.warn "The NUR emmanuelrosa is deprecated. Please see https://github.com/emmanuelrosa/erosanix to obtain ${pathToName pkg}" pkg;
-  goneForGood = pkg: pkgs.lib.trivial.warn "The package ${pathToName pkg} is no longer supported by my NUR." pkg;
-
-  # The `lib`, `modules`, and `overlay` names are special
-  lib = import ./lib { inherit pkgs; }; # functions
-  modules = import ./modules; # NixOS modules
-  overlays = import ./overlays; # nixpkgs overlays
-
-  example-package = pkgs.callPackage ./pkgs/example-package { };
-  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
-  century-gothic = deprecate (pkgs.callPackage ./pkgs/century-gothic { });
-  wingdings = deprecate (pkgs.callPackage ./pkgs/wingdings { });
-  trace-font = deprecate (pkgs.callPackage ./pkgs/data/fonts/trace { });
-  battery-icons = deprecate (pkgs.callPackage ./pkgs/data/fonts/battery-icons { });
-  electrum-personal-server = deprecate (pkgs.callPackage ./pkgs/electrum-personal-server { });
-  er-wallpaper = deprecate (pkgs.haskellPackages.callPackage ./pkgs/er-wallpaper { });
-  electrum-hardened = deprecate (pkgs.callPackage ./pkgs/applications/misc/electrum-hardened { });
-  pdf2png = deprecate (pkgs.callPackage ./pkgs/tools/graphics/pdf2png { });
-  rofi-menu = deprecate (pkgs.callPackage ./pkgs/applications/misc/rofi-menu { });
-  electrumx = goneForGood (pkgs.callPackage ./pkgs/applications/blockchains/electrumx { });
-  bitcoin-onion-nodes = deprecate (pkgs.callPackage ./pkgs/applications/blockchains/bitcoin-onion-nodes { });
-  nvidia-offload = deprecate (deprecate (pkgs.callPackage ./pkgs/os-specific/linux/nvidia-offload { }));
-  bisq-desktop = goneForGood (pkgs.callPackage ./pkgs/applications/blockchains/bisq-desktop { });
-  sparrow = deprecate (pkgs.callPackage ./pkgs/applications/blockchains/sparrow { });
-  muun-recovery-tool = deprecate (pkgs.callPackage ./pkgs/applications/blockchains/muun-recovery-tool { });
-  tastyworks = deprecate (pkgs.callPackage ./pkgs/applications/misc/tastyworks { });
-  sierrachart = deprecate (pkgs.callPackage ./pkgs/applications/trading/sierrachart { wrapWine = lib.wrapWine;
-    wine = pkgs.wineWowPackages.full;
-  });
-}
+let
+  system = builtins.currentSystem;
+  lock = builtins.fromJSON (builtins.readFile ./flake.lock);
+  flake-compat = import (fetchTarball {
+    url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
+    sha256 = lock.nodes.flake-compat.locked.narHash;
+  }) { src = ./.; };
+in { pkgs ? import <nixpkgs> { } }: # NOTE: pkgs is ignored
+{
+  lib = flake-compat.defaultNix.lib;
+  modules = flake-compat.defaultNix.nixosModules;
+} // flake-compat.defaultNix.packages."${system}"
