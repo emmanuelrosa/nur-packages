@@ -6,15 +6,19 @@
 # commands such as:
 #     nix-build -A mypackage
 
+{ pkgs ? import <nixpkgs> { } }:
 let
   system = builtins.currentSystem;
   lock = builtins.fromJSON (builtins.readFile ./flake.lock);
-  flake-compat = import (fetchTarball {
+  unpack = archive: strip: pkgs.runCommandLocal "unpack" { inherit archive; } ''mkdir -p $out && ${pkgs.gnutar}/bin/tar -xzf ${archive} --strip-components=${builtins.toString strip} -C $out'';
+
+  flake-compat-tar = pkgs.fetchurl {
     url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
-    sha256 = lock.nodes.flake-compat.locked.narHash;
-  }) { src = ./.; };
-in { pkgs ? import <nixpkgs> { } }: # NOTE: pkgs is ignored
-{
+    sha256 = "awLMgZXKXOWRoFLiDTZrwBRpGwclewVq7zloqI1lly0=";
+  };
+
+  flake-compat = import (unpack flake-compat-tar 1) { src = ./.; };
+in {
   lib = flake-compat.defaultNix.lib;
   modules = flake-compat.defaultNix.nixosModules;
 } // flake-compat.defaultNix.packages."${system}"
