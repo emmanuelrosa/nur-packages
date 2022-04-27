@@ -9,11 +9,9 @@ There are some things which have been removed:
  - Overlays: The fonts exist as packages, instead.
  - Packages:
      - electrum-hardened 
-     - `trace-font` is now named `trace`; Oops, sorry!
      - electrumx
  - Modules:
      - electrumx
-     - fzf (I never got this working right)
 
 Here's a taste of what's included (yes, there are some WINE-compatible Windows applications too):
 
