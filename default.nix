@@ -10,14 +10,12 @@
 let
   system = builtins.currentSystem;
   lock = builtins.fromJSON (builtins.readFile ./flake.lock);
-  unpack = archive: strip: pkgs.runCommandLocal "unpack" { inherit archive; } ''mkdir -p $out && ${pkgs.gnutar}/bin/tar -xzf ${archive} --strip-components=${builtins.toString strip} -C $out'';
-
-  flake-compat-tar = pkgs.fetchurl {
-    url = "https://github.com/edolstra/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
-    sha256 = "awLMgZXKXOWRoFLiDTZrwBRpGwclewVq7zloqI1lly0=";
-  };
-
-  flake-compat = import (unpack flake-compat-tar 1) { src = ./.; };
+  flake-compat = import (pkgs.fetchFromGitHub {
+    owner = "edolstra";
+    repo = "flake-compat";
+    rev = "b4a34015c698c7793d592d66adbab377907a2be8";
+    sha256 = "sha256-Z+s0J8/r907g149rllvwhb4pKi8Wam5ij0st8PwAh+E=";
+  }) { src = ./.; };
 in {
   lib = flake-compat.defaultNix.lib;
   modules = flake-compat.defaultNix.nixosModules;
